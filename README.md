@@ -1,2 +1,2 @@
 # Meteor-ShopManagmentSystem
-Team project for Software development methodes course
+Team project for Software development methods course
