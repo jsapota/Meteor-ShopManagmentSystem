@@ -1,0 +1,56 @@
+<template name="productGallery">
+    <div class="row">
+        <div class="col-sm-12 col-md-3 filters">
+            <div class="row">
+                <div class="col-sm-6 col-md-12 ">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2> Categories</h2>
+                            <ul class="listOfCategories">
+                                {{#each categories}}
+                                    <li>{{name}}</li>
+                                {{/each}}
+                            </ul>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2> Sizes</h2>
+                            <ul class="listOfCategories">
+                                {{#each categories}}
+                                    <li>{{name}}</li>
+                                {{/each}}
+                            </ul>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2> Colors</h2>
+                            <ul class="listOfCategories">
+                                {{#each categories}}
+                                    <li>{{name}}</li>
+                                {{/each}}
+                            </ul>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-12">
+                    others
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-9 products">
+            <div class="row">
+                {{#each clothesList}}
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        {{> cloth}}
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+</template>
