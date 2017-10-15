@@ -10,9 +10,7 @@
 </head>
 
 <body>
-{{> header}}
-
-{{> mainLayout}}
-
-{{> footer}}
+  {{> header}}
+  {{> Template.dynamic template=content}}
+  {{> footer}}
 </body>

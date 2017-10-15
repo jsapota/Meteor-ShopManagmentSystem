@@ -8,5 +8,8 @@
     "babel-runtime": "^6.20.0",
     "meteor-node-stubs": "~0.2.4",
     "simpl-schema": "^0.3.2"
+  },
+  "devDependencies": {
+    "sass-graph": "^2.2.4"
   }
 }

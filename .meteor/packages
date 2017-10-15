@@ -15,18 +15,18 @@ shell-server@0.2.3            # Server-side component of the `meteor shell` comm
 autopublish@1.0.7             # Publish all data to the clients (for prototyping)
 insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
 
-#routes and layout
+#routes and render
 kadira:flow-router
 kadira:blaze-layout
 
-#scss
-#seba:minifiers-autoprefixer
-#fourseven:scss
+#scass, fontawesome
+fortawesome:fontawesome
+fourseven:scss
+twbs:bootstrap
 
-#autoForm
+#autoForm,
 aldeed:collection2-core
 session
 
-#css
-twbs:bootstrap
+#others
 meteortoys:allthings
