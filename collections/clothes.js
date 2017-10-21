@@ -7,6 +7,7 @@ SimpleSchema.debug = true;
 
 Clothes = new Mongo.Collection('clothes');
 
+
 const ClothesSchema = new SimpleSchema({
   name: {
     type: String,
@@ -16,38 +17,84 @@ const ClothesSchema = new SimpleSchema({
     type: String,
     label: "Creator"
   },
+  description: {
+    type: String,
+    label: "Description"
+  },
   price: {
     type: Number,
     label: "Price"
   },
   type: {
     type: String,
-    label: "Type"
+    label: "Type",
+    allowedValues: ['hoodie', 't-shirt'],
+    defaultValue: "hoodie"
+  },
+  XS: {
+    type: Number,
+    label: "Amount of XS"
+  },
+  SM: {
+    type: Number,
+    label: "Amount of S"
+  },
+  MD: {
+    type: Number,
+    label: "Amount of M"
+  },
+  LG: {
+    type: Number,
+    label: "Amount of L"
+  },
+  XL: {
+    type: Number,
+    label: "Amount of XL"
   },
   sex: {
     type: String,
-    label: "Sex"
+    label: "Sex",
+    allowedValues: ['men', 'women'],
+    defaultValue: "men"
   },
-  size: {
+  status: {
     type: String,
-    label: "Size"
+    label: "Status",
+    allowedValues: ['available', 'out of stock', 'ordered'],
+    defaultValue: "available"
   },
   photo: {
     type: String,
     label: "Photo"
   },
-  color: {
+  photoSec: {
     type: String,
-    label: "Colors"
+    label: "Secondary photo "
   },
-  amount: {
-    type: Number,
-    label: "Amount"
+  colors: {
+    type: Array
   },
-  status: {
+  'colors.$': {
     type: String,
-    label: "Status",
-  }
+  },
+  createdAt: {
+    type: Date,
+    autoValue: function() {
+      if (this.isInsert) {
+        return new Date();
+      } else if (this.isUpsert) {
+        return {$setOnInsert: new Date()};
+      } else {
+        // Prevent user from supplying their own value
+        this.unset();
+      }
+    },
+    autoform: {
+      type: "hidden"
+    }
+  },
 });
 
 Clothes.attachSchema(ClothesSchema);
+
+export default Clothes;

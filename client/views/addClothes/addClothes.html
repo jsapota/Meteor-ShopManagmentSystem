@@ -1,100 +1,131 @@
 <template name="addClothes">
-  {{#autoForm collection="Clothes" id="insertClothesForm" type="insert"}}
-    <fieldset>
-      <legend>Add a clothes</legend>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="form-group {{#if afFieldIsInvalid name='name'}}has-error{{/if}}">
-            <label class="control-label">{{afFieldLabelText name='name' }}</label>
-            {{> afFieldInput name='name'}}
-            {{#if afFieldIsInvalid name='name'}}
-              <span class="help-block">{{{afFieldMessage name='name'}}}</span>
-            {{/if}}
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group {{#if afFieldIsInvalid name='creator'}}has-error{{/if}}">
-            <label class="control-label">{{afFieldLabelText name='creator' }}</label>
-            {{> afFieldInput name='creator'}}
-            {{#if afFieldIsInvalid name='creator'}}
-              <span class="help-block">{{{afFieldMessage name='creator'}}}</span>
-            {{/if}}
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group {{#if afFieldIsInvalid name='price'}}has-error{{/if}}">
-            <label class="control-label">{{afFieldLabelText name='price' }}</label>
-            {{> afFieldInput name='price'}}
-            {{#if afFieldIsInvalid name='price'}}
-              <span class="help-block">{{{afFieldMessage name='price'}}}</span>
-            {{/if}}
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group {{#if afFieldIsInvalid name='type'}}has-error{{/if}}">
-            <label class="control-label">{{afFieldLabelText name='type' }}</label>
-            {{> afFieldInput name='type'}}
-            {{#if afFieldIsInvalid name='type'}}
-              <span class="help-block">{{{afFieldMessage name='type'}}}</span>
-            {{/if}}
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group {{#if afFieldIsInvalid name='sex'}}has-error{{/if}}">
-            <label class="control-label">{{afFieldLabelText name='sex' }}</label>
-            {{> afFieldInput name='sex'}}
-            {{#if afFieldIsInvalid name='sex'}}
-              <span class="help-block">{{{afFieldMessage name='sex'}}}</span>
-            {{/if}}
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group {{#if afFieldIsInvalid name='size'}}has-error{{/if}}">
-            <label class="control-label">{{afFieldLabelText name='size' }}</label>
-            {{> afFieldInput name='size'}}
-            {{#if afFieldIsInvalid name='size'}}
-              <span class="help-block">{{{afFieldMessage name='size'}}}</span>
-            {{/if}}
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group {{#if afFieldIsInvalid name='photo'}}has-error{{/if}}">
-            <label class="control-label">{{afFieldLabelText name='photo' }}</label>
-            {{> afFieldInput name='photo'}}
-            {{#if afFieldIsInvalid name='photo'}}
-              <span class="help-block">{{{afFieldMessage name='photo'}}}</span>
-            {{/if}}
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group {{#if afFieldIsInvalid name='color'}}has-error{{/if}}">
-            <label class="control-label">{{afFieldLabelText name='color' }}</label>
-            {{> afFieldInput name='color'}}
-            {{#if afFieldIsInvalid name='color'}}
-              <span class="help-block">{{{afFieldMessage name='color'}}}</span>
-            {{/if}}
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group {{#if afFieldIsInvalid name='amount'}}has-error{{/if}}">
-            <label class="control-label">{{afFieldLabelText name='amount' }}</label>
-            {{> afFieldInput name='amount'}}
-            {{#if afFieldIsInvalid name='amount'}}
-              <span class="help-block">{{{afFieldMessage name='amount'}}}</span>
-            {{/if}}
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="form-group {{#if afFieldIsInvalid name='status'}}has-error{{/if}}">
-            <label class="control-label">{{afFieldLabelText name='status' }}</label>
-            {{> afFieldInput name='status'}}
-            {{#if afFieldIsInvalid name='status'}}
-              <span class="help-block">{{{afFieldMessage name='status'}}}</span>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-    </fieldset>
-    <button type="submit" class="btn btn-primary">Insert</button>
-  {{/autoForm}}
+  {{>quickForm collection="Clothes" id="insertClothesForm" type="insert"}}
+
 </template>
+
+
+  <!--{{#autoForm collection="Clothes" id="insertClothesForm" type="insert"}}-->
+<!--<fieldset>-->
+<!--<legend>Add a clothes</legend>-->
+<!--<div class="row">-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='name'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='name' }}</label>-->
+<!--{{> afFieldInput name='name'}}-->
+  <!--{{#if afFieldIsInvalid name='name'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='name'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='creator'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='creator' }}</label>-->
+<!--{{> afFieldInput name='creator'}}-->
+  <!--{{#if afFieldIsInvalid name='creator'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='creator'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='price'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='price' }}</label>-->
+<!--{{> afFieldInput name='price'}}-->
+  <!--{{#if afFieldIsInvalid name='price'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='price'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='type'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='type' }}</label>-->
+<!--{{> afFieldInput name='type'}}-->
+  <!--{{#if afFieldIsInvalid name='type'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='type'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='sex'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='sex' }}</label>-->
+<!--{{> afFieldInput name='sex'}}-->
+  <!--{{#if afFieldIsInvalid name='sex'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='sex'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='XS'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='XS' }}</label>-->
+<!--{{> afFieldInput name='XS'}}-->
+  <!--{{#if afFieldIsInvalid name='XS'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='XS'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='SM'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='SM' }}</label>-->
+<!--{{> afFieldInput name='SM'}}-->
+  <!--{{#if afFieldIsInvalid name='SM'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='SM'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='MD'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText nMDame='MD' }}</label>-->
+<!--{{> afFieldInput name='MD'}}-->
+  <!--{{#if afFieldIsInvalid name='MD'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='MD'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='LG'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='LG' }}</label>-->
+<!--{{> afFieldInput name='LG'}}-->
+  <!--{{#if afFieldIsInvalid name='LG'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='LG'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='XL'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='XL' }}</label>-->
+<!--{{> afFieldInput name='XL'}}-->
+  <!--{{#if afFieldIsInvalid name='XL'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='XL'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='photo'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='photo' }}</label>-->
+<!--{{> afFieldInput name='photo'}}-->
+  <!--{{#if afFieldIsInvalid name='photo'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='photo'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='color'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='color' }}</label>-->
+<!--{{> afFieldInput name='color'}}-->
+  <!--{{#if afFieldIsInvalid name='color'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='color'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-sm-4">-->
+<!--<div class="form-group {{#if afFieldIsInvalid name='status'}}has-error{{/if}}">-->
+<!--<label class="control-label">{{afFieldLabelText name='status' }}</label>-->
+<!--{{> afFieldInput name='status'}}-->
+  <!--{{#if afFieldIsInvalid name='status'}}-->
+<!--<span class="help-block">{{{afFieldMessage name='status'}}}</span>-->
+  <!--{{/if}}-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</fieldset>-->
+<!--<button type="submit" class="btn btn-primary">Insert</button>-->
+  <!--{{/autoForm}}-->

@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
-  // code to run on server at startup
+  if (Clothes.find().count() < 20) {
+    Meteor.call('refillBase');
+  }
 });
