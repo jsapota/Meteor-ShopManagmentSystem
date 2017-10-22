@@ -5,10 +5,10 @@
                 <div class="col-sm-6 col-md-12 ">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h2> Categories</h2>
+                            <h3> Categories</h3>
                             <ul class="listOfCategories">
                                 {{#each categories}}
-                                    <li>{{name}}</li>
+                                    <li><button class="categoryButton" value="{{type}}">{{type}}</button></li>
                                 {{/each}}
                             </ul>
                             <hr>
@@ -16,21 +16,24 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <h2> Sizes</h2>
+                            <h3> Sizes</h3>
                             <ul class="listOfCategories">
-                                {{#each categories}}
-                                    <li>{{name}}</li>
-                                {{/each}}
+                                <li> <button class="sizeButton" value="XS">XS</button></li>
+                                <li> <button class="sizeButton" value="SM">SM</button></li>
+                                <li> <button class="sizeButton" value="MD">MD</button></li>
+                                <li> <button class="sizeButton" value="LG">LG</button></li>
+                                <li> <button class="sizeButton" value="XL">XL</button></li>
+
                             </ul>
                             <hr>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <h2> Colors</h2>
+                            <h3> Colors</h3>
                             <ul class="listOfCategories">
                                 {{#each categories}}
-                                    <li>{{name}}</li>
+                                    <li><button class="colorButton" value="{{color}}">{{color}}</button></li>
                                 {{/each}}
                             </ul>
                             <hr>
