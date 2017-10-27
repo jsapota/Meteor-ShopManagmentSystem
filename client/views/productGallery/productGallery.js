@@ -10,9 +10,11 @@ Template.productGallery.onCreated(function () {
 Template.productGallery.helpers({
 
     'categories': function () {
-        let tempTypes = Clothes.find({},{ type: 1}).map(function(c) { return { type: c.type}});
+        let tempTypes = Clothes.find({}, {type: 1}).map(function (c) {
+            return {type: c.type}
+        });
         var types = {};
-        var newTypes = tempTypes.filter(function(entry) {
+        var newTypes = tempTypes.filter(function (entry) {
             if (types[entry.type]) {
                 return false;
             }
@@ -22,7 +24,7 @@ Template.productGallery.helpers({
         return newTypes
     },
     'clothesList': function () {
-        let clothesChosen =  Clothes.find(
+        let clothesChosen = Clothes.find(
             {
                 sex: Template.instance().clothSex.get(),
                 type: Template.instance().clothCategory.get()
@@ -49,26 +51,25 @@ Template.productGallery.helpers({
         //             sizes.push(clothesChosen[i]);
         //
         // }
-       // console.log(sizes);
-       // return sizes;
+        // console.log(sizes);
+        // return sizes;
     },
 
     'clothesColor': function () {
-        let tempColors = Clothes.find({},{ colors: 1}).map(function(c) { return { colors: c.colors}});
+        let tempColors = Clothes.find({}, {colors: 1}).map(function (c) {
+            return {colors: c.colors}
+        });
+        console.log(tempColors);
         var colorsObj = {};
-        var newColors = tempColors.filter(function(entry) {
-            if (colorsObj[entry.colors]) {
+        var newColors = tempColors.filter(function (entry) {
+            if (entry) {
                 return false;
             }
             colorsObj[entry.colors] = true;
             return true;
         });
-        console.log(newColors);
-        return newColors;
-
-
-
-
+        // console.log(newColors);
+        // return newColors;
 
     }
 });
