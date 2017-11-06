@@ -1,0 +1,266 @@
+Clothes.insert({
+  "name": "Yellow Oversize Hoodie",
+  "creator": "creator",
+  "price": 50,
+  "description": "Stay comfy and casual in this oversized hoodie. Try pairing with wide leg trousers and heels to compliment./n"+
+"-Hooded design/n"+
+"-Simple long sleeves/n"+
+"-Single pocket front/n"+
+"-Soft cotton blend/n"+
+"-Oversized for a looser fit/n"+
+"Dionne is 174cm tall and wearing size M.",
+  "type": "hoodie",
+  "XS": 50,
+  "SM": 50,
+  "MD": 50,
+  "LG": 50,
+  "XL": 50,
+  "sex": "women",
+  "status": "available",
+  "photo": "/images/womenshoodies/yellowoversizedhoodie.jpg",
+  "photoSec": "/images/womenshoodies/yellowoversizedhoodie2.jpg", 
+ "colors": [
+    "yellow",
+    "yellow"
+  ]
+})
+
+Clothes.insert({
+  "name": "Pink Velour Hoodie",
+  "creator": "creator",
+  "price": 45,
+  "description": "Bring the luxe lounge trend to your casual wardrobe with this velour hoodie. Pair with the matching joggers for a full blown 00s throwback./n"+
+"- Soft velour finish/n"+
+"- Hooded design/n"+
+"- 'Amour' gem embellished hood/n"+
+"- Simple long sleeves/n"+
+"- Zip front fastening/n"+
+"- Side pockets/n"+
+"- Matching joggers available/n"+
+"- Ribbed trim/n"+
+"- Soft cotton blend/n"+
+"- Casual fit that is true to size/n"+
+"- Sasha is 173cm tall and wearing size M.",
+  "type": "hoodie",
+  "XS": 50,
+  "SM": 50,
+  "MD": 50,
+  "LG": 50,
+  "XL": 50,
+  "sex": "women",
+  "status": "available",
+  "photo": "/images/womenshoodies/pinkvelourhoodie.jpg",
+  "photoSec": "/images/womenshoodies/pinkvelourhoodie2.jpg", 
+ "colors": [
+    "pink",
+    "pink"
+  ]
+})
+
+Clothes.insert({
+  "name": "Black Oversize Hoodie",
+  "creator": "creator",
+  "price": 50,
+  "description": "Stay comfy and casual in this oversized hoodie. Try pairing with a floral skirt and ankle boots to complement./n"+
+"- Hooded design/n"+
+"- Simple long sleeves/n"+
+"- Drawstring detail/n"+
+"- Single pocket front/n"+
+"- Soft cotton blend/n"+
+"- Oversized for a looser fit/n"+
+"Model is 176cm tall and wearing size M.",
+  "type": "hoodie",
+  "XS": 50,
+  "SM": 50,
+  "MD": 50,
+  "LG": 50,
+  "XL": 50,
+  "sex": "women",
+  "status": "available",
+  "photo": "/images/womenshoodies/blackoversizedhoodie.jpg",
+  "photoSec": "/images/womenshoodies/blackoversizedhoodie2.jpg", 
+ "colors": [
+    "black",
+    "black"
+  ]
+})
+
+Clothes.insert({
+  "name": "Black Velour Zip Hoodie",
+  "creator": "creator",
+  "price": 40,
+  "description": "Refresh the basics in this soft velour hoodie. Layer over a floral dress for a laid back look./n"+
+"- Hooded design/n"+
+"- Soft finish/n"+
+"- Zip front fastening/n"+
+"- Simple long sleeves/n"+
+"- Casual fit that is true to size/n"+
+"- Matching joggers available/n"+
+"Hana is 171cm tall and wearing size M.",
+  "type": "hoodie",
+  "XS": 50,
+  "SM": 50,
+  "MD": 50,
+  "LG": 50,
+  "XL": 50,
+  "sex": "women",
+  "status": "available",
+  "photo": "/images/womenshoodies/blackvelourhoodie.jpg",
+  "photoSec": "/images/womenshoodies/blackvelourhoodie2.jpg", 
+ "colors": [
+    "black",
+    "black"
+  ]
+})
+
+Clothes.insert({
+  "name": "Grey Longline Hoodie",
+  "creator": "creator",
+  "price": 60,
+  "description": "Keep cosy in this longline hoodie. Pair with ripped skinny jeans and trainers for an edgy casual look./n"+
+"- Hooded design/n"+
+"- Woven tie front/n"+
+"- Eyelet detail/n"+
+"- Simple long sleeves/n"+
+"- Single pocket front/n"+
+"- Cuffed hem/n"+
+"- Longline design/n"+
+"- Soft finish/n"+
+"- Casual fit that is true to size/n"+
+"Dionne is 174cm tall and wearing size M.",
+  "type": "hoodie",
+  "XS": 50,
+  "SM": 50,
+  "MD": 50,
+  "LG": 50,
+  "XL": 50,
+  "sex": "women",
+  "status": "available",
+  "photo": "/images/womenshoodies/greylonglinehoodie.jpg",
+  "photoSec": "/images/womenshoodies/greylonglinehoodie2.jpg", 
+ "colors": [
+    "grey",
+    "grey"
+  ]
+})
+
+Clothes.insert({
+  "name": "Soho Hoodie",
+  "creator": "creator",
+  "price": 35,
+  "description": "Update your causal wardrobe with this printed hoodies. Pair with jeans and trainers for a go-to off-duty outfit./n"+
+"- Hooded design/n"+
+"- Simple long sleeves/n"+
+"- 'Soho New York' printed front/n"+
+"- Drawstring hem/n"+
+"- Soft jersey finish/n"+
+"- Casual fit that is true to size/n"+
+"Dionne is 174cm tall and wearing size M.",
+  "type": "hoodie",
+  "XS": 50,
+  "SM": 50,
+  "MD": 50,
+  "LG": 50,
+  "XL": 50,
+  "sex": "women",
+  "status": "available",
+  "photo": "/images/womenshoodies/sohohoodie.jpg",
+  "photoSec": "/images/womenshoodies/sohohoodie2.jpg", 
+ "colors": [
+    "white",
+    "red"
+  ]
+})
+
+Clothes.insert({
+  "name": "Sleeveless Hoodie",
+  "creator": "creator",
+  "price": 25,
+  "description": "Bring the loungewear trend into your everyday wardrobe this season with this hoodie. Try complementing with leggings and trainers to finish./n"+
+"- Hooded design/n"+
+"- Sleeveless design/n"+
+"- Casual fit that is true to size/n"+
+"Model is 176cm tall and wearing size M.",
+  "type": "hoodie",
+  "XS": 50,
+  "SM": 50,
+  "MD": 50,
+  "LG": 50,
+  "XL": 50,
+  "sex": "women",
+  "status": "available",
+  "photo": "/images/womenshoodies/sleevelesshoodie.jpg",
+  "photoSec": "/images/womenshoodies/sleevelesshoodie2.jpg", 
+ "colors": [
+    "grey",
+    "red"
+  ]
+})
+
+Clothes.insert({
+  "name": "God Team Hoodie",
+  "creator": "creator",
+  "price": 59,
+  "description": "Colourful printed hoodie with God Team print on front and back fabricated from a blend of cotton and polyester. Featuring a drawstring hood, practical front pocket, long sleeves, ribbed cuffs and Bittersweet Paris logo on the neck. Ridiculously comfortable and fun to wear. Oversized fit./n"+
+"Model is 177 cm tall and wearing size S.",
+  "type": "hoodie",
+  "XS": 50,
+  "SM": 50,
+  "MD": 50,
+  "LG": 50,
+  "XL": 50,
+  "sex": "women",
+  "status": "available",
+  "photo": "/images/womenshoodies/godhoodie.jpg",
+  "photoSec": "/images/womenshoodies/godhoodie2.jpg", 
+ "colors": [
+    "green",
+    "yellow",
+    "blue"
+  ]
+})
+
+Clothes.insert({
+  "name": "Tropical Hoodie",
+  "creator": "creator",
+  "price": 57,
+  "description": "Colourful printed hoodie with Tropical print on front and back fabricated from a blend of cotton and polyester. Featuring a drawstring hood, practical front pocket, long sleeves, ribbed cuffs and Bittersweet Paris logo on the neck. Ridiculously comfortable and fun to wear. Oversized fit./n"+
+"Model is 177 cm tall and wearing size S.",
+  "type": "hoodie",
+  "XS": 50,
+  "SM": 50,
+  "MD": 50,
+  "LG": 50,
+  "XL": 50,
+  "sex": "women",
+  "status": "available",
+  "photo": "/images/womenshoodies/tropicalhoodie.jpg",
+  "photoSec": "/images/womenshoodies/tropicalhoodie2.jpg", 
+ "colors": [
+    "yellow",
+    "white"
+  ]
+})
+
+Clothes.insert({
+  "name": "Fly With Me Hoodie",
+  "creator": "creator",
+  "price": 40,
+  "description": "Colourful printed hoodie with Fly With Me print on front and back fabricated from a blend of cotton and polyester. Featuring a drawstring hood, practical front pocket, long sleeves, ribbed cuffs and Bittersweet Paris logo on the neck. Ridiculously comfortable and fun to wear. Oversized fit./n"+
+"Model is 177 cm tall and wearing size S.",
+  "type": "hoodie",
+  "XS": 50,
+  "SM": 50,
+  "MD": 50,
+  "LG": 50,
+  "XL": 50,
+  "sex": "women",
+  "status": "available",
+  "photo": "/images/womenshoodies/flywithmehoodie.jpg",
+  "photoSec": "/images/womenshoodies/flywithmehoodie2.jpg", 
+ "colors": [
+    "grey",
+    "pink",
+    "blue"
+  ]
+})

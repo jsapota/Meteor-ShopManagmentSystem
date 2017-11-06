@@ -1,15 +1,48 @@
 <template name="header">
-  <nav class="navbar navbar-default navbar-inverse">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">WebSiteName</a>
+      <div class="row">
+        <div class="col-lg-10">
+          <ul class="nav navbar-nav">
+            <!--temporary solution-->
+            <div class="navbar-header"><img src="https://s1.postimg.org/8urmaf13db/666.png" alt="logo"></div>
+
+            <li class="active"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle disabled" data-toggle="dropdown" role="button"><i class="fa fa-mars"></i> Men</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">T-shirts</a>
+                  <a href="#">Bottoms</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle disabled" data-toggle="dropdown"><i class="fa fa-venus"></i> Women</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">T-shirts</a>
+                  <a href="#">Bottoms</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-percent"></i> Sale</a></li>
+            <li><a href="#"><i class="fa fa-info-circle"></i> Info</a></li>
+          </ul>
+
+        </div>
+        <div class="col-lg-2">
+
+          <ul class="nav navbar-nav">
+            <li id="cart"><a href="#"><i class="fa fa-shopping-basket"></i> Cart</a>
+            </li>
+            <li id="signin"><a href="#"><i class="fa fa-sign-in"></i> Sign in</a></li>
+          </ul>
+
+        </div>
+
       </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li>
-      </ul>
     </div>
   </nav>
 </template>
+
