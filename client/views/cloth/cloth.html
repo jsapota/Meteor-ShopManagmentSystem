@@ -1,8 +1,12 @@
 <template name="cloth">
-    <div class="row cloth ">
+    <div class="row clothMain">
         <div class="col-sm-12 ">
-            <div class="row">
-                <img class="clothPhoto" src="{{photo}}">
+            <div class="row imageHolder">
+              {{#if imageVisible}}
+                <img class="clothPhoto " src="{{photo}}">
+              {{else}}
+                <img class="clothPhoto " src="{{photoSec}}">
+              {{/if}}
             </div>
             <div class="row">
                 <p class="clothName">{{name}}</p>
