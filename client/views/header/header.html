@@ -5,38 +5,43 @@
         <div class="col-lg-10">
           <ul class="nav navbar-nav">
             <!--temporary solution-->
-            <div class="navbar-header"><img src="https://s1.postimg.org/8urmaf13db/666.png" alt="logo"></div>
-
-            <li class="active"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <div class="navbar-header">
+              <img src="https://s1.postimg.org/8urmaf13db/666.png" alt="logo"></div>
+            <li class="active">
+              <a href="/">
+                <i class="fa fa-home"></i> Home</a>
+            </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle disabled" data-toggle="dropdown" role="button"><i class="fa fa-mars"></i> Men</a>
+              <a href="/products/men?category=hoodie" class="dropdown-toggle disabled" data-toggle="dropdown" role="button">
+                <i class="fa fa-mars"></i> Men</a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="#">T-shirts</a>
-                  <a href="#">Bottoms</a>
+                  <a href="/products/men?category=hoodie">Hoodies</a>
+                  <a href="/products/men?category=t-shirt">T-shirts</a>
                 </li>
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle disabled" data-toggle="dropdown"><i class="fa fa-venus"></i> Women</a>
+              <a href="/products/women?category=hoodie" class="dropdown-toggle disabled" data-toggle="dropdown">
+                <i class="fa fa-venus"></i> Women</a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="#">T-shirts</a>
-                  <a href="#">Bottoms</a>
+                  <a href="/products/women?category=hoodie">Hoodies</a>
+                  <a href="/products/women?category=t-shirt">T-shirts</a>
                 </li>
               </ul>
             </li>
-            <li><a href="#"><i class="fa fa-percent"></i> Sale</a></li>
-            <li><a href="#"><i class="fa fa-info-circle"></i> Info</a></li>
+            <li><a href="/sales"><i class="fa fa-percent"></i> Sale</a></li>
+            <li><a href="/info"><i class="fa fa-info-circle"></i> Info</a></li>
           </ul>
 
         </div>
         <div class="col-lg-2">
 
           <ul class="nav navbar-nav">
-            <li id="cart"><a href="#"><i class="fa fa-shopping-basket"></i> Cart</a>
+            <li id="cart"><a href="/cart"><i class="fa fa-shopping-basket"></i> Cart</a>
             </li>
-            <li id="signin"><a href="#"><i class="fa fa-sign-in"></i> Sign in</a></li>
+            <li id="signin"><a href="/sign-in"><i class="fa fa-sign-in"></i> Sign in</a></li>
           </ul>
 
         </div>

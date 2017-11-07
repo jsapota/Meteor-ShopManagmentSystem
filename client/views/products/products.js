@@ -1,14 +1,19 @@
-Template.productGallery.onCreated(function () {
+Template.products.onCreated(function () {
   template = Template.instance();
   this.clothSex = new ReactiveVar("men");
   this.clothCategory = new ReactiveVar("hoodie");
   this.clothSize = new ReactiveVar("SM");
   this.clothColor = new ReactiveVar("white");
-
 });
 
 
-Template.productGallery.helpers({
+Template.products.helpers({
+  'setSex': (sex) => {
+    Template.instance().clothSex.set(sex || "men");
+  },
+  'setCategory': (category) => {
+    Template.instance().clothCategory.set(category || "hoodie");
+  },
   'categories': () => {
     let tempTypes = Clothes.find({}, {type: 1}).map(function (c) {
       return {type: c.type}
@@ -57,7 +62,7 @@ Template.productGallery.helpers({
     let tempColors = Clothes.find({}, {colors: 1}).map(function (c) {
       return {colors: c.colors}
     });
-    console.log(tempColors);
+    // console.log(tempColors);
     let colorsObj = {};
     let newColors = tempColors.filter(function (entry) {
       if (entry) {
@@ -71,7 +76,7 @@ Template.productGallery.helpers({
   }
 });
 
-Template.productGallery.events({
+Template.products.events({
   'click .categoryButton': (event) => {
     Template.instance().clothCategory.set(event.target.value);
   },
