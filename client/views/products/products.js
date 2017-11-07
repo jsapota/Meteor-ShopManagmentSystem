@@ -79,6 +79,7 @@ Template.products.helpers({
 Template.products.events({
   'click .categoryButton': (event) => {
     Template.instance().clothCategory.set(event.target.value);
+    FlowRouter.setQueryParams({category: event.target.value});
   },
 
   'click .sizeButton': (event) => {

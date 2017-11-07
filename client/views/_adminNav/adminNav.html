@@ -1,0 +1,17 @@
+<template name="adminNav">
+  <nav class="navbar navbar-default navbar-inverse">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="{{activeItem main}}">
+          <a href="/adminPanel">Main</a>
+        </li>
+        <li class="{{activeItem products}}">
+          <a href="/adminPanel/products">Products</a>
+        </li>
+        <li class="{{activeItem finances}}">
+          <a href="/adminPanel/finances">Finances</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</template>
