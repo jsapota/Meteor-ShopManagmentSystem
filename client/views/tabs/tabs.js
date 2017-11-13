@@ -24,6 +24,9 @@ Template.Tabs.helpers({
       }}
     ];
   },
+  inchOrCm: (value) => {
+    return value;
+  },
   activeTab: function () {
     // Use this optional helper to reactively set the active tab.
     // All you have to do is return the slug of the tab.
