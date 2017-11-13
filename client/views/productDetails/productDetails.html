@@ -1,0 +1,25 @@
+<template name="productDetails">
+    <div class="row detailsMain">
+        <div class="col-md-6">
+			<div class="row">
+                <img class="photo" src="{{image}}">
+			</div>
+        </div>
+        <div class="col-md-6">
+			<div class="row">
+				<p class="name">{{name}}</p>
+			</div>
+            <div class="row">
+				<span class="price">{{price}}</span>
+				<span class="cartButton">Add to cart</span>
+            </div>
+			<div class="row horizontalSpacer"></div>
+			<div class="row">
+				<p class="sizeChoice">Sizes</p>
+			</div>
+			<div class="row">
+				<p class="description">{{details}}</p>
+			</div>
+        </div>
+    </div>
+</template>
