@@ -1,43 +1,80 @@
 .detailsMain
-  background-color lightgray
+  padding: 40px 0
+  background lightgray
+
+.detailsBox
   background white
-  margin 0.5 em
-  border 0.1 em solid gray
-  padding 0.5 em
-
-div p
   text-align left
-
-.description
-  margin 0.5 em
-  padding 0.5 em
-  font-size 1.5em
- 
-.photo
-  position absolute
-  top 0
-  height 300px
-  width 100%
-  object-fit cover
-  background-color white
+  padding-left: 60px
 
 .name
   font-size 3em
   font-weight bold
 
 .price
-  padding 13px 30px 10px 30px
   font-weight bold
   font-size 2.3em
+.taxInfo
+  font-size 0.5em
+  font-weight: lighter
+
+.description
+  text-align left
+  padding-top: 25px
+  font-size 1em
+
+.sizesList
+  text-align: left
+  font-size: 1.1em
+  padding-top: 25px
+.photo
+  width 100%
+  object-fit cover
+
+button:focus,
+button:active
+  outline: 0
+
+
+.photoBox
+  position: relative
+  .arrow
+    position: absolute
+    top: 45%
+  .left
+    left: -10px
+  .right
+    right: -10px
+
+
+.cartIcon
+  position: absolute
+  top: 13px
+  right: 15px
 
 .cartButton
-  background-color darkorange
-  color white
-  padding 13px 30px 10px 30px
-  font-weight bold
-  margin-left 1.3em
-  text-transform uppercase
-  font-size 1.3em
+  position: relative
+  color: white
+  height: 42px
+  width: calc(55% - 5px)
+  margin-top: 15px
+  margin-bottom: 0;
+  padding: 0 26px
+  line-height: 40px
+  letter-spacing: 3px
+  font-family: Poppins
+  font-weight: 700
+  font-size: 16px
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  -webkit-transition: all .15s ease-in-out
+  -khtml-transition: all .15s ease-in-out
+  -moz-transition: all .15s ease-in-out
+  -ms-transition: all .15s ease-in-out
+  -o-transition: all .15s ease-in-out
+  transition: all .15s ease-in-out
+  b
+    color: black
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
 
-.horizontalSpacer
-  margin-top: 20px

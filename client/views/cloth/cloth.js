@@ -16,4 +16,8 @@ Template.cloth.events({
   'mouseleave .imageHolder'(event, instance) {
     instance.mousePos.set(false);
   },
+  'click .imageHolder'(event, instance) {
+    FlowRouter.go('/products/' + FlowRouter.getParam("sex") + "/" + FlowRouter.getParam("category") + "/" + this._id);
+
+  }
 });

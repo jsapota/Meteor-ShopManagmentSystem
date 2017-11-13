@@ -1,0 +1,72 @@
+<template name="Tabs">
+
+  <!-- Use `name` to add a custom class to the outer container -->
+  {{#basicTabs name="" tabs=tabs}}
+    <!--
+      There are two ways to define content for your tabs:
+
+      1. Wrap each tabbed section in a blank `<div></div>`.
+         Sections must correspond with the order of the tabs you specified.
+
+      2. Wrap each tabbed section in the provided block helper (RECOMMENDED!).
+         `{{#tabContent slug="nameOfSlug"}} ... {{/tabContent}}`
+         These can be defined in any order you like.
+    -->
+    {{#tabContent slug="details"}}
+      <button class="add-details"></button>
+      <div class="row tabDetails">
+        <div class="col-sm-12">
+          <p class="text-left">Item fits true to size.</p>
+        </div>
+        <div class="col-sm-12">
+          <b class="text-left">INFO</b>
+        </div>
+        <div class="col-sm-12">
+          <ul>
+            <li> Oversized fit</li>
+            <li> Round neck</li>
+            <li> High quality material</li>
+            <li> Handmade in Europe</li>
+          </ul>
+        </div>
+        <div class="col-sm-12">
+          <b class="text-left">CARE</b>
+          <ul>
+            <li>Gentle machine wash at 30°C with similar colors or hand wash in cold water</li>
+            <li> The fabric is super soft, smooth and delicate so please treat this garment with care and
+              avoid rough surfaces
+            </li>
+          </ul>
+        </div>
+      </div>
+    {{/tabContent}}
+
+    {{#tabContent slug="shipping"}}
+      <button class="add-shipping"></button>
+      <div class="row tabShipping">
+        <ul>
+          <li><b>Germany</b> - DHL Courier - 2-3 working days</li>
+          <li><b>Rest of European Union </b>- UPS Courier - 2-5 working days</li>
+          <li><b>North and South America</b> - USPS / Postal Service - 10-14 working days</li>
+          <li><b>Switzerland</b> - Swiss Post - 9-12 working days</li>
+          <li><b>Norway</b> - Posten - 8-12 working days</li>
+        </ul>
+
+
+        <p><b>SAME DAY</b> order shipment on orders made before 14:00 CEST!</p>
+        <p><b>FREE SHIPPING</b> on all orders!</p>
+        <p>The shipment is <b>fully traceable</b> with tracking number sent in Confirmation email after dispatching.</p>
+
+      </div>
+    {{/tabContent}}
+
+    {{#tabContent slug="sizes"}}
+      <button class="add-sizes text-left"></button>
+      <div class="text-left">
+
+      </div>
+    {{/tabContent}}
+
+  {{/basicTabs}}
+
+</template>

@@ -45,6 +45,7 @@ aldeed:autoform-bs-button-group-input@2.0.0
 
 #others
 meteortoys:allthings
+templates:tabs
 
 #toCheck?!
 logging@1.1.19

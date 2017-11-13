@@ -1,25 +1,56 @@
 <template name="productDetails">
-    <div class="row detailsMain">
-        <div class="col-md-6">
-			<div class="row">
-                <img class="photo" src="{{image}}">
-			</div>
+  <div class="row detailsMain">
+    {{#each clothFields}}
+      <div class="col-sm-4 col-sm-offset-1 photoBox">
+        <button class="arrow left">
+          <i class="fa fa-chevron-left fa-3x" aria-hidden="true"></i>
+        </button>
+        <button class="arrow right">
+          <i class="fa fa-chevron-right fa-3x" aria-hidden="true"></i>
+        </button>
+        <img class="photo" src="{{whichPhoto photo photoSec}}">
+      </div>
+      <div class="col-sm-5 col-sm-offset-1 detailsBox">
+        <div class="row">
+          <div class="col-sm-12">
+            <h3 class="name">{{name}}</h3>
+          </div>
         </div>
-        <div class="col-md-6">
-			<div class="row">
-				<p class="name">{{name}}</p>
-			</div>
-            <div class="row">
-				<span class="price">{{price}}</span>
-				<span class="cartButton">Add to cart</span>
+        <div class="row">
+          <div class="col-sm-12">
+            <span class="price">$ {{price}}  <i class="taxInfo">(Tax included)</i></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="sizesList">Select sizes</p>
+            <div class="btn-group btn-group-lg">
+              <button class="btn btn-default" value="XS">XS</button>
+              <button class="btn btn-default" value="SM">S</button>
+              <button class="btn btn-default" value="MD">M</button>
+              <button class="btn btn-default" value="LG">L</button>
+              <button class="btn btn-default" value="XL">XL</button>
             </div>
-			<div class="row horizontalSpacer"></div>
-			<div class="row">
-				<p class="sizeChoice">Sizes</p>
-			</div>
-			<div class="row">
-				<p class="description">{{details}}</p>
-			</div>
+          </div>
         </div>
-    </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <button class="btn btn-warning cartButton">
+              Add <b>{{chosenSize}}</b> to cart <i class="cartIcon fa fa-shopping-basket"></i>
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-10">
+            <p class="description">{{description}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            {{>Tabs}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
 </template>
