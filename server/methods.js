@@ -3,8 +3,9 @@
  */
 Meteor.methods({
   refillBase: () => {
-    if (Clothes.find().count <= 30) {
+    if (true) {
       // Men hoodies
+        console.log("Refil base");
       Clothes.insert({
         "name": "Painter Hoodie",
         "creator": "creator",
