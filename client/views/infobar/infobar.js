@@ -11,14 +11,14 @@ Template.infobar.helpers({
 });
 
 Template.infobar.events({
-    'click .menButton': function () {
-
-
+    'click .Bsller':() => {
+        FlowRouter.go('/products/men/hoodie');
     },
-
-    'click .womenButton': function () {
-        //FlowRouter.go('')
-
-    }
+    'click .MenBsller':() => {
+        FlowRouter.go('/products/men/hoodie');
+    },
+    'click .WmBsller':() => {
+        FlowRouter.go('/products/women/hoodie');
+    },
 
 });
