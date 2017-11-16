@@ -1,9 +1,7 @@
 
 Template.horizontalGallery.onCreated(function () {
     template = Template.instance();
-    this.clothSex = new ReactiveVar("men");
-    this.clothType = new ReactiveVar("hoodie");
-});
+   });
 
 
 
@@ -11,11 +9,9 @@ Template.horizontalGallery.onCreated(function () {
 
 Template.horizontalGallery.helpers({
 
-    'clothesList': function () {
-        let range = _.random(5,34 ); //Clothes.find().count()
-        console.log(range);
-        let clothesChosen = Clothes.find( { type: "hoodie"}, {limit: 4, skip: range-4});
-        console.log("Choosen clothes:" + clothesChosen);
+    'clothesHorizontalList': function () {
+        let range = _.random(1,36 ); //Clothes.find().count()
+        let clothesChosen = Clothes.find( {}, {limit: 4, skip: range});
         return clothesChosen;
     }
 });

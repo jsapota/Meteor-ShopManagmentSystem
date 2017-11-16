@@ -3,26 +3,26 @@
         <div class="col-sm-12 col-md-9 products">
             <div class="row">
                 <h4> You may like</h4>
-                <!--<div class="row">-->
-                    <!--{{#each clothesList}}-->
-                        <!--<div class="col-sm-4 col-md-3 col-lg-2">-->
-                            <!--{{> cloth}}-->
-                        <!--</div>-->
-                    <!--{{/each}}-->
-                <!--</div>-->
-
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            {{#each clothesList}}
-                            <div class="swiper-slide col-4">
-                                {{> cloth}}
-                            </div>
-                            {{/each}}
+                <div class="row">
+                    {{#each clothesHorizontalList}}
+                        <div class="col-sm-3 ">
+                            {{> cloth}}
                         </div>
+                    {{/each}}
+                </div>
 
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
+                    <!--<div class="swiper-container">-->
+                        <!--<div class="swiper-wrapper">-->
+                            <!--{{#each clothesList}}-->
+                            <!--<div class="swiper-slide col-4">-->
+                                <!--{{> cloth}}-->
+                            <!--</div>-->
+                            <!--{{/each}}-->
+                        <!--</div>-->
+
+                        <!--<div class="swiper-button-next"></div>-->
+                        <!--<div class="swiper-button-prev"></div>-->
+                    <!--</div>-->
 
 
             </div>
