@@ -28,8 +28,13 @@ const ClothesSchema = new SimpleSchema({
   type: {
     type: String,
     label: "Type",
-    allowedValues: ['hoodie', 't-shirt'],
+    allowedValues: ['hoodie', 't-shirt', 'sweater', 'backpack'],
     defaultValue: "hoodie"
+  },
+  subType: {
+    type: String,
+    label: "Type",
+    optional: true
   },
   XS: {
     type: Number,

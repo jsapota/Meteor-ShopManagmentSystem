@@ -25,18 +25,28 @@
           <div class="col-sm-12">
             <p class="sizesList">Select sizes</p>
             <div class="btn-group btn-group-lg">
-              <button class="btn btn-default" value="XS">XS</button>
-              <button class="btn btn-default" value="SM">S</button>
-              <button class="btn btn-default" value="MD">M</button>
-              <button class="btn btn-default" value="LG">L</button>
-              <button class="btn btn-default" value="XL">XL</button>
+              <button class="btn btn-default sizes" value="XS">XS</button>
+              <button class="btn btn-default sizes" value="SM">S</button>
+              <button class="btn btn-default sizes" value="MD">M</button>
+              <button class="btn btn-default sizes" value="LG">L</button>
+              <button class="btn btn-default sizes" value="XL">XL</button>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-12">
-            <button class="btn btn-warning cartButton">
-              Add <b>{{chosenSize}}</b> to cart <i class="cartIcon fa fa-shopping-basket"></i>
+            <span class="amount">
+              <p class="sizesList">Select amount</p>
+              <p class="amountBox">{{amount}}</p>
+              <button id="addAmount" class="btn btn-default"><i class="fa fa-plus" aria-hidden="true"></i></button>
+              <button id="subAmount" class="btn btn-default"><i class="fa fa-minus" aria-hidden="true"></i></button>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <button id="addToCart" class="btn btn-warning cartButton">
+              Add <b>{{chosenAmount}} {{chosenSize}}</b> to cart <i class="cartIcon fa fa-shopping-basket"></i>
             </button>
           </div>
         </div>
