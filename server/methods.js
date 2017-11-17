@@ -2,38 +2,40 @@
  * Created by Jakub on 06.11.2017.
  */
 Meteor.methods({
-  // 'addToCart': (item, amount, size) => {
-  //   if(Meteor.user()) {
-  //     return 0
-  //   } else {
-  //     let user = Meteor.userId();
-  //     if(Cart.find({ user : user}).count() !== 0) {
-  //       Cart.insert({
-  //         user: user,
-  //         item: [],
-  //       });
-  //       if(Cart.find({user: user, item.id: item}).count() > 0){
-  //
-  //       };
-  //       Cart.update({
-  //         user: user
-  //       }, {
-  //         $push: {
-  //           items: {
-  //             id: item,
-  //             amount: amount,
-  //             size: size
-  //           }
-  //         }
-  //       });
-  //       console.log(Cart.find({user: user}));
-  //     } else {
-  //       console.log('nie ma carta');
-  //     }
-  //   }
-  // },
+  refillBase: () => {
+    if (true) {
+  'addToCart': (item, amount, size) => {
+    if(Meteor.user()) {
+      return 0
+    } else {
+      let user = Meteor.userId();
+      if(Cart.find({ user : user}).count() !== 0) {
+        Cart.insert({
+          user: user,
+          item: [],
+        });
+        if(Cart.find({user: user, item.id: item}).count() > 0){
+  
+        };
+        Cart.update({
+          user: user
+        }, {
+          $push: {
+            items: {
+              id: item,
+              amount: amount,
+              size: size
+            }
+          }
+        });
+        console.log(Cart.find({user: user}));
+      } else {
+        console.log('nie ma carta');
+      }
+    }
+  },
   'refillBase': () => {
-    if (Clothes.find().count() <= 30) {
+    if (Clothes.find().count() <= 70) {
       // Men hoodies
       Clothes.insert({
         "name": "Painter Hoodie",
