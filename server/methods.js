@@ -2,24 +2,20 @@
  * Created by Jakub on 06.11.2017.
  */
 Meteor.methods({
-  refillBase: () => {
-    if (true) {
   'addToCart': (item, amount, size) => {
-    if(Meteor.user()) {
-      return 0
-    } else {
-      let user = Meteor.userId();
+    if(Meteor.user()) { return 0 } else {
+      // let user = Meteor.userId();
+      let user = "dummy";
+      if(Cart.find({ user : user}).count() === 0) {
+        Cart.insert({ user: user, item: []});
+      }
       if(Cart.find({ user : user}).count() !== 0) {
-        Cart.insert({
-          user: user,
-          item: [],
-        });
-        if(Cart.find({user: user, item.id: item}).count() > 0){
-  
-        };
-        Cart.update({
-          user: user
-        }, {
+        Cart.insert({ user: user, item: []});
+        // if(Cart.find({user: user, item.id: item}).count() > 0){
+        //
+        // }
+        // };
+        Cart.update({ user: user }, {
           $push: {
             items: {
               id: item,
@@ -29,9 +25,7 @@ Meteor.methods({
           }
         });
         console.log(Cart.find({user: user}));
-      } else {
-        console.log('nie ma carta');
-      }
+      } else { console.log('nie ma carta'); }
     }
   },
   'refillBase': () => {
