@@ -13,15 +13,20 @@ CartItem = new SimpleSchema({
   },
   amount: {
     type: Number
+  },
+  size: {
+    type: String
   }
 });
+
 CartSchema = new SimpleSchema({
   user: {
     type: String
   },
   price: {
     type: Number,
-    label: "Total price"
+    label: "Total price",
+    optional: true
   },
   items: {
     type: Array
