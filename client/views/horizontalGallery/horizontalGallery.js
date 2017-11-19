@@ -1,4 +1,3 @@
-
 Template.horizontalGallery.onCreated(function () {
     template = Template.instance();
    });
@@ -8,11 +7,8 @@ Template.horizontalGallery.onCreated(function () {
 
 
 Template.horizontalGallery.helpers({
-
     'clothesHorizontalList': function () {
-        let range = _.random(1,36 ); //Clothes.find().count()
-        let clothesChosen = Clothes.find( {}, {limit: 4, skip: range});
-        return clothesChosen;
+      return Clothes.find( {}, {limit: 4, skip: range});
     }
 });
 
@@ -23,6 +19,9 @@ Template.horizontalGallery.onRendered(function () {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
+        slidesPerView: 4,
+        loop: true,
+        loopedSlides: 4
     });
 
 });
