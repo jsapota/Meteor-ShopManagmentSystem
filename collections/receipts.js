@@ -4,20 +4,7 @@ import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
 SimpleSchema.debug = true;
 
-
 Reciepts = new Mongo.Collection('reciepts');
-
-RecieptItem = new SimpleSchema({
-  id: {
-    type: String
-  },
-  amount: {
-    type: Number
-  },
-  price: {
-    type: Number
-  }
-});
 RecieptSchema = new SimpleSchema({
   user: {
     type: String
@@ -26,14 +13,8 @@ RecieptSchema = new SimpleSchema({
     type: Number,
     label: "Total price"
   },
-  items: {
-    type: Array
-  },
-  "items.$": {
-    type: RecieptItem
-  },
-  totalPrice: {
-    type: Number
+  cartId: {
+    type: String
   },
   createdAt: {
     type: Date,

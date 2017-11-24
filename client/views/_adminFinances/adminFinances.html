@@ -1,3 +1,18 @@
 <template name="adminFinances">
-  adminFinances
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">User</div>
+      <div class="col-sm-3">CartId</div>
+      <div class="col-sm-3">Date</div>
+      <div class="col-sm-3">Total</div>
+    </div>
+    {{#each recieptList}}
+      <div class="row">
+        <div class="col-sm-3">{{user}}</div>
+        <div class="col-sm-3">{{cartId}}</div>
+        <div class="col-sm-3">{{createdAt}}</div>
+        <div class="col-sm-3">{{price}}</div>
+      </div>
+    {{/each}}
+  </div>
 </template>

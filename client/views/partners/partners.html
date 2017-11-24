@@ -1,14 +1,10 @@
 <template name="partners">
-  <div class="row">
-      <div class="col-12">
-          <div class="partnersContainer">
-              <ul>
-                  <li><span> Our partners: </span></li>
-                  {{#each partnersLogoList}}
-                      <li>Image<img class="photo" src="{{value}}"></li>
-                  {{/each}}
-              </ul>
-          </div>
-      </div>
+  <div class="col-sm-12 partnersContainer">
+    <ul>
+      <li><span> Our partners: </span></li>
+      {{#each partnersLogoList}}
+        <li>Image<img class="photo" src="{{value}}"></li>
+      {{/each}}
+    </ul>
   </div>
 </template>

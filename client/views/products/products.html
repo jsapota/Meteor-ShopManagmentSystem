@@ -1,66 +1,67 @@
 <template name="products">
-    {{setSex sex}}
-    {{setCategory category}}
-    <div class="row">
-        <div class="col-sm-12 col-md-3 filters">
-            <div class="row">
-                <div class="col-sm-6 col-md-12 ">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h3> Categories</h3>
-                            <ul class="listOfCategories">
-                                {{#each categories}}
-                                    <li><button class="categoryButton" value="{{type}}">{{type}}</button></li>
-                                {{/each}}
-                            </ul>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h3> Sizes</h3>
-                            <ul class="listOfCategories">
-                                <li> <input type="checkbox" class="sizeButton" id="xs" name="" />
-                                    <label for="xs"><span>XS</span></label></li>
-                                <li> <input type="checkbox" class="sizeButton" id="sm" name="" />
-                                    <label for="sm"><span>SM</span></label></li>
-                                <li> <input type="checkbox" class="sizeButton" id="md" name="" />
-                                    <label for="md"><span>MD</span></label></li>
-                                <li> <input type="checkbox" class="sizeButton" id="lg" name="" />
-                                    <label for="lg"><span>LG</span></label></li>
-                                <li> <input type="checkbox" class="sizeButton" id="xl" name="" />
-                                    <label for="xl"><span>XL</span></label></li>
-
-                            </ul>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h3> Colors</h3>
-                            <ul class="listOfCategories">
-                                {{#each clothesColor}}
-                                    <li><button class="colorButton" value="{{color}}">{{color}}</button></li>
-                                {{/each}}
-                            </ul>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-12">
-                    others
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-9 products">
-            <div class="row">
-                {{#each clothesList}}
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        {{> cloth}}
-                    </div>
+  {{setSex sex}}
+  {{setCategory category}}
+  <div class="row">
+    <div class="col-sm-12 col-md-3 filters">
+      <div class="row">
+        <div class="col-sm-6 col-md-12 ">
+          <div class="row">
+            <div class="col-sm-12">
+              <h3> Categories</h3>
+              <ul class="listOfCategories">
+                {{#each categories}}
+                  <li>
+                    <button class="categoryButton" value="{{type}}">{{type}}</button>
+                  </li>
                 {{/each}}
+              </ul>
+              <hr>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <h3> Sizes</h3>
+              <ul class="listOfCategories">
+                <li><input type="checkbox" class="sizeButton" id="xs" name=""/>
+                  <label for="xs"><span>XS</span></label></li>
+                <li><input type="checkbox" class="sizeButton" id="sm" name=""/>
+                  <label for="sm"><span>SM</span></label></li>
+                <li><input type="checkbox" class="sizeButton" id="md" name=""/>
+                  <label for="md"><span>MD</span></label></li>
+                <li><input type="checkbox" class="sizeButton" id="lg" name=""/>
+                  <label for="lg"><span>LG</span></label></li>
+                <li><input type="checkbox" class="sizeButton" id="xl" name=""/>
+                  <label for="xl"><span>XL</span></label></li>
+              </ul>
+              <hr>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <h3> Colors</h3>
+              <ul class="listOfCategories">
+                {{#each clothesColor}}
+                  <li>
+                    <button class="colorButton" value="{{color}}">{{color}}</button>
+                  </li>
+                {{/each}}
+              </ul>
+              <hr>
+            </div>
+          </div>
         </div>
+        <div class="col-sm-6 col-md-12">
+          others
+        </div>
+      </div>
     </div>
+    <div class="col-sm-12 col-md-9 products">
+      <div class="row">
+          {{#each clothesList}}
+            {{> cloth}}
+          {{/each}}
+      </div>
+    </div>
+  </div>
 
 </template>

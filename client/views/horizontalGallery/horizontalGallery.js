@@ -2,12 +2,9 @@ Template.horizontalGallery.onCreated(function () {
     template = Template.instance();
    });
 
-
-
-
-
 Template.horizontalGallery.helpers({
     'clothesHorizontalList': function () {
+      let range = _.random(1,36 );
       return Clothes.find( {}, {limit: 4, skip: range});
     }
 });

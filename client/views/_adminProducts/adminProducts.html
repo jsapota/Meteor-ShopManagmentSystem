@@ -1,3 +1,32 @@
 <template name="adminProducts">
-  main tasdasemplate
+  <div class="container ">
+    <div class="row adminProductsHeader">
+      <button class="col-sm-2 propertyButton {{activeRow 'name'}}" id="name">Name</button>
+      <button class="col-sm-1 propertyButton {{activeRow 'creator'}}" id="creator">Creator</button>
+      <button class="col-sm-1 propertyButton {{activeRow 'type'}}" id="type">Type</button>
+      <button class="col-sm-1 propertyButton {{activeRow 'price'}}" id="price">Price</button>
+      <button class="col-sm-1 propertyButton {{activeRow 'status'}}" id="status">Status</button>
+      <button class="col-sm-1 propertyButton {{activeRow 'sex'}}" id="sex">Sex</button>
+      <button class="col-sm-1 propertyButton {{activeRow 'XS'}}" id="XS">XS</button>
+      <button class="col-sm-1 propertyButton {{activeRow 'SM'}}" id="SM">S</button>
+      <button class="col-sm-1 propertyButton {{activeRow 'MD'}}" id="MD">M</button>
+      <button class="col-sm-1 propertyButton {{activeRow 'LG'}}" id="LG">L</button>
+      <button class="col-sm-1 propertyButton {{activeRow 'XL'}}" id="XL">XL</button>
+    </div>
+    {{#each productInBase}}
+      <div class="row adminProducts">
+        <div class="col-sm-2" >{{name}}</div>
+        <div class="col-sm-1">{{creator}}</div>
+        <div class="col-sm-1">{{type}}</div>
+        <div class="col-sm-1">{{price}}</div>
+        <div class="col-sm-1">{{status}}</div>
+        <div class="col-sm-1">{{sex}}</div>
+        <div class="col-sm-1">{{XS}}</div>
+        <div class="col-sm-1">{{SM}}</div>
+        <div class="col-sm-1">{{MD}}</div>
+        <div class="col-sm-1">{{LG}}</div>
+        <div class="col-sm-1">{{XL}}</div>
+      </div>
+    {{/each}}
+  </div>
 </template>
