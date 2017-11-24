@@ -1,15 +1,13 @@
 Template.partners.onCreated(function () {
-    template = Template.instance();
-
+  template = Template.instance();
 });
 
-
 Template.partners.helpers({
-
-    'partnersLogoList': [
-        "/images/partnersLogos/glamour.png",
-        "/images/partnersLogos/zara-logo.jpg",
-        "/images/partnersLogos/vogue.png"
-    ],
-
+  'partnersLogoList': () => {
+    return [
+      {"value": "/images/partnersLogos/glamour.png"},
+      {"value": "/images/partnersLogos/zara-logo.jpg"},
+      {"value": "/images/partnersLogos/vogue.png"}
+    ]
+  },
 });
