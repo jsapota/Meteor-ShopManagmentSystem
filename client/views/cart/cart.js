@@ -7,4 +7,3 @@ Template.cart.helpers({
     return [{},{}];
   }
 });
-
