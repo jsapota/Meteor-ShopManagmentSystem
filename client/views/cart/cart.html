@@ -3,9 +3,7 @@
         <div class="col-sm-12">
           <h2 class="title">Shopping cart</h2>
         </div>
-      <div class="col-sm-12">
-
-          <div class="cartItemsList">
+      <div class="col-sm-12 cartItemsList">
               <div class="row titles">
                   <div class="col-3 ">
                       <span> Amount </span>
@@ -18,8 +16,8 @@
                   </div>
               </div>
 
+      <div class="row cartItem">
               {{#each cartItem}}
-                  <div class="row cartItem">
                       <div class="col-3 amount">
                           <span> 1 </span>
                       </div>
@@ -29,11 +27,10 @@
                       <div class="col-3 price">
                           7,50 $
                       </div>
-                  </div>
               {{/each}}
+      </div>
           </div>
 
-      </div>
 <!--button bootstrap, btn btn-primary btn-block-->
       <!--btn-lg btn-md-->
   </div>
