@@ -42,7 +42,6 @@ CartSchema = new SimpleSchema({
       } else if (this.isUpsert) {
         return {$setOnInsert: new Date()};
       } else {
-        // Prevent user from supplying their own value
         this.unset();
       }
     },
