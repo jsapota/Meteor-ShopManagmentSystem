@@ -5,11 +5,15 @@ Template.header.onCreated(function() {
 Template.header.helpers({
   'openCart': () => {
     Template.instance().openCart.get();
+  },
+  'test': () => {
+    document.getElementById("cart").style = "background: red";
   }
 });
 
 Template.header.events({
-  'click .fa-shopping-basket': () => {
+  'click #cart': () => {
     Template.instance().openCart.set(!Template.instance().openCart.get());
+    Session.set('openCart', Template.instance().openCart.get());
   }
 });
