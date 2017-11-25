@@ -41,7 +41,14 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li id="Admin Panel"><a href="/adminPanel"><i class="fa fa-wheelchair"></i> Admin Panel</a></li>
-          <li id="cart"><a href="/cart"><i class="fa fa-shopping-basket"></i> Cart</a></li>
+          <li id="cart">
+            {{#if currentUser}}
+              <a><i class="fa fa-shopping-basket"></i> Cart</a>
+              {{#if openCart}}
+                {{> cart}}
+              {{/if}}
+            {{/if}}
+          </li>
           <li id="signin"><a><i class="fa fa-sign-in"></i> {{> loginButtons}}</a></li>
         </ul>
       </div>
