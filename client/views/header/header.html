@@ -1,49 +1,50 @@
 <template name="header">
-  <nav class="navbar navbar-default navbar-fixed-top row">
-    <div class="col-lg-9">
-      <ul class="nav navbar-nav">
-        <!--temporary solution-->
-        <div class="navbar-header">
-          <img src="https://s1.postimg.org/352byw9k27/logo.png" alt="logo">
-        </div>
-        <li class="active">
-          <a href="/">
-            <i class="fa fa-home"></i> Home</a>
-        </li>
-        <li class="dropdown">
-          <a href="/products/men/hoodie" class="dropdown-toggle disabled" data-toggle="dropdown" role="button">
-            <i class="fa fa-mars"></i> Men</a>
-          <ul class="dropdown-menu">
-            <li role="presentation" class="dropdown-header">Clothes</li>
-            <li role="presentation"><a href="/products/men/hoodie">Hoodies</a></li>
-            <li role="presentation"><a href="/products/men/t-shirt">T-shirts</a></li>
-            <li role="presentation"><a href="/products/men/sweater">Sweater</a></li>
-            <li role="presentation" class="dropdown-header">Accesories</li>
-            <li role="presentation"><a href="/products/men/backpack">Backpacks</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="/products/women/hoodie" class="dropdown-toggle disabled" data-toggle="dropdown" role="button">
-            <i class="fa fa-venus"></i> Women</a>
-          <ul class="dropdown-menu">
-            <li role="presentation" class="dropdown-header">Clothes</li>
-            <li role="presentation"><a href="/products/women/hoodie">Hoodies</a></li>
-            <li role="presentation"><a href="/products/women/t-shirt">T-shirts</a></li>
-            <li role="presentation"><a href="/products/women/sweater">Sweater</a></li>
-            <li role="presentation" class="dropdown-header">Accesories</li>
-            <li role="presentation"><a href="/products/men/backpack">Backpacks</a></li>
-          </ul>
-        </li>
-        <li><a href="/sales"><i class="fa fa-percent"></i> Sale</a></li>
-        <li><a href="/info"><i class="fa fa-info-circle"></i> Info</a></li>
-      </ul>
-    </div>
-    <div class="col-lg-3">
-      <ul class="nav navbar-nav">
-        <li id="Admin Panel"><a href="/adminPanel"><i class="fa fa-wheelchair"></i> Admin Panel</a></li>
-        <li id="cart"><a href="/cart"><i class="fa fa-shopping-basket"></i> Cart</a></li>
-        <li id="signin"><a href="/signin"><i class="fa fa-sign-in"></i> Sign in</a></li>
-      </ul>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img class="navbar-brand" src="https://s1.postimg.org/352byw9k27/logo.png" alt="logo">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="active"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+          <li class="dropdown">
+            <a href="/products/men/hoodie" class="dropdown-toggle disabled" data-toggle="dropdown" role="button">
+              <i class="fa fa-mars"></i> Men</a>
+            <ul class="dropdown-menu">
+              <li role="presentation" class="dropdown-header">Clothes</li>
+              <li role="presentation"><a href="/products/men/hoodie">Hoodies</a></li>
+              <li role="presentation"><a href="/products/men/t-shirt">T-shirts</a></li>
+              <li role="presentation"><a href="/products/men/sweater">Sweater</a></li>
+              <li role="presentation" class="dropdown-header">Accesories</li>
+              <li role="presentation"><a href="/products/men/backpack">Backpacks</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="/products/women/hoodie" class="dropdown-toggle disabled" data-toggle="dropdown" role="button">
+              <i class="fa fa-venus"></i> Women</a>
+            <ul class="dropdown-menu">
+              <li role="presentation" class="dropdown-header">Clothes</li>
+              <li role="presentation"><a href="/products/women/hoodie">Hoodies</a></li>
+              <li role="presentation"><a href="/products/women/t-shirt">T-shirts</a></li>
+              <li role="presentation"><a href="/products/women/sweater">Sweater</a></li>
+              <li role="presentation" class="dropdown-header">Accesories</li>
+              <li role="presentation"><a href="/products/men/backpack">Backpacks</a></li>
+            </ul>
+          </li>
+          <li><a href="/sales"><i class="fa fa-percent"></i> Sale</a></li>
+          <li><a href="/info"><i class="fa fa-info-circle"></i> Info</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li id="Admin Panel"><a href="/adminPanel"><i class="fa fa-wheelchair"></i> Admin Panel</a></li>
+          <li id="cart"><a href="/cart"><i class="fa fa-shopping-basket"></i> Cart</a></li>
+          <li id="signin"><a><i class="fa fa-sign-in"></i> {{> loginButtons}}</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 </template>

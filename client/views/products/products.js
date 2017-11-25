@@ -6,6 +6,9 @@ Template.products.onCreated(function () {
   this.clothColor = new ReactiveVar("white");
 });
 
+Template.products.onRendered(function() {
+
+});
 
 Template.products.helpers({
   'setSex': (sex) => {
@@ -32,6 +35,7 @@ Template.products.helpers({
       {
         sex: Template.instance().clothSex.get(),
         type: Template.instance().clothCategory.get()
+        // colors: {$all: [""]}
       }
     );
     // let sizes =  {};
@@ -59,18 +63,33 @@ Template.products.helpers({
     // return sizes;
   },
   'clothesColor': () => {
+    let tempArray = [];
+    let colors = [];
     let tempColors = Clothes.find({}, {colors: 1}).map(function (c) {
       return {colors: c.colors}
     });
-    // console.log(tempColors);
-    let colorsObj = {};
-    let newColors = tempColors.filter(function (entry) {
-      if (entry) {
-        return false;
-      }
-      colorsObj[entry.colors] = true;
-      return true;
+    tempColors.forEach((value) => {
+      tempArray = tempArray.concat(value.colors)
     });
+    let collectColors = (value) => {
+      if (colors.indexOf(value) === -1) {
+        colors.push(value);
+      }
+    };
+    tempArray.forEach((value) => {collectColors(value)});
+    colors = colors.map(function(c) {
+      return {"color": c}
+    });
+    return colors;
+    // console.log(tempColors);
+    // let colorsObj = {};
+    // let newColors = tempColors.filter(function (entry) {
+    //   if (entry) {
+    //     return false;
+    //   }
+    //   colorsObj[entry.colors] = true;
+    //   return true;
+    // });
     // console.log(newColors);
     // return newColors;
   }
@@ -81,15 +100,13 @@ Template.products.events({
     Template.instance().clothCategory.set(event.target.value);
     FlowRouter.go('/products/' + FlowRouter.getParam("sex") + "/" + event.target.value);
   },
-
   'click .sizeButton': (event) => {
     Template.instance().clothSize.set(event.target.value);
     alert(event.target.value);
   },
-
   'click .colorButton': (event) => {
-    Template.instance().clothSize.set(event.target.value);
-    alert(event.target.value);
+    // Template.instance().clothColor.set(event.target.value);
+    alert(event.target.id + event.target.value);
   }
 });
 

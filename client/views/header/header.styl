@@ -1,12 +1,12 @@
 .navbar
+.navbar-header
+  box-sizing: inherit
   img
     padding-right: 5%
     width: 128px
     height: 50px
-
-.navbar-header
-  box-sizing: inherit
-
+.navbar-brand
+  padding: 0
 .dropdown
   display: inline-block
   position: relative
@@ -47,3 +47,17 @@
   &:last-child
     border-radius: 0 0 5px 5px
     padding: 0
+
+#login-dropdown-list
+  position: fixed
+  top: 60px
+  left: calc(100% - 240px)
+#login-buttons a, .accounts-dialog a
+  cursor: pointer
+  text-decoration: none
+  color: inherit
+#login-buttons .login-close-text
+  float: right
+  position: relative
+  padding-bottom: 8px
+
