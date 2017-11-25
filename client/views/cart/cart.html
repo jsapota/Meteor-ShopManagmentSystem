@@ -1,20 +1,23 @@
 <template name="cart">
-    <div class="row cartBox">
-        <div class="row cartMain">
-            <span>Shopping cart</span>
-            <div class="col-3">
-                <div class="col-3">
-
-                </div>
-                <div class="col-3">
-
-                </div>
-            </div>
-            <div class="col-3">
-
-            </div>
-        </div>
-
+  <div class="row cartBox">
+    <div class="col-sm-12">
+      <h2 class="title">Shopping cart</h2>
     </div>
+  </div>
+  {{#each cartItem}}
+    <div class="row cartItem">
+      <div class="col-3">
+          1 x
+      </div>
+      <div class="col-6">
+          chuj
+      </div>
+      <div class="col-3">
+          7,50 $
+      </div>
+    </div>
+  {{/each}}
+  <div class="row">
 
+  </div>
 </template>

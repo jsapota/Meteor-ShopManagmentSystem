@@ -1,8 +1,10 @@
 Template.cart.onCreated(function () {
-    template = Template.instance();
+  template = Template.instance();
 });
 
 Template.cart.helpers({
-
+  'cartItem': () => {
+    return [{},{}];
+  }
 });
 
