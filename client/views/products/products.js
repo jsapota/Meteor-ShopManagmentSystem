@@ -3,7 +3,8 @@ Template.products.onCreated(function () {
   this.clothSex = new ReactiveVar("men");
   this.clothCategory = new ReactiveVar("hoodie");
   this.clothSize = new ReactiveVar("SM");
-  this.clothColor = new ReactiveVar("white");
+  this.clothColor = new ReactiveVar(true);
+  this.colorsEmpty = new ReactiveVar(true);
 });
 
 Template.products.onRendered(function() {
@@ -31,13 +32,19 @@ Template.products.helpers({
     });
   },
   'clothesList': () => {
-    return clothesChosen = Clothes.find(
-      {
+    if(Template.instance().colorsEmpty.get()){
+      return clothesChosen = Clothes.find({
         sex: Template.instance().clothSex.get(),
         type: Template.instance().clothCategory.get()
-        // colors: {$all: [""]}
-      }
-    );
+      });
+    } else {
+      return clothesChosen = Clothes.find({
+      sex: Template.instance().clothSex.get(),
+      type: Template.instance().clothCategory.get(),
+      colors: {$all: []}
+      });
+    }
+
     // let sizes =  {};
     // for(i = 0; i < clothesChosen.length; i++){
     //     if(Template.instance().clothSize.get() === "XS")
@@ -77,21 +84,7 @@ Template.products.helpers({
       }
     };
     tempArray.forEach((value) => {collectColors(value)});
-    colors = colors.map(function(c) {
-      return {"color": c}
-    });
-    return colors;
-    // console.log(tempColors);
-    // let colorsObj = {};
-    // let newColors = tempColors.filter(function (entry) {
-    //   if (entry) {
-    //     return false;
-    //   }
-    //   colorsObj[entry.colors] = true;
-    //   return true;
-    // });
-    // console.log(newColors);
-    // return newColors;
+    return colors.map(function(c) { return {"color": c}});
   }
 });
 
@@ -105,8 +98,10 @@ Template.products.events({
     alert(event.target.value);
   },
   'click .colorButton': (event) => {
+    let el = document.getElementsByClassName("colorButton");
+    console.log(typeof el);
     // Template.instance().clothColor.set(event.target.value);
-    alert(event.target.id + event.target.value);
+    // alert(event.target.id + event.target.value);
   }
 });
 
