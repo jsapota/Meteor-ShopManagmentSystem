@@ -38,7 +38,7 @@
               <ul class="row listOfCategories">
                 {{#each clothesColor}}
                   <div class="col-sm-4">
-                    <li><input type="checkbox" class="colorButton" id="{{color}}" name=""/>
+                    <li><input type="checkbox" class="colorButton" id="{{color}}" name="colorCheckbox"/>
                       <label for="{{color}}"><span>{{color}}</span></label>
                     </li>
                   </div>
@@ -52,9 +52,14 @@
     </div>
     <div class="col-sm-12 col-md-9 products">
       <div class="row">
+        {{#if areThereItems}}
+          {{> noItems}}
+          {{recheckClothes}}
+        {{else}}
           {{#each clothesList}}
             {{> cloth}}
           {{/each}}
+        {{/if}}
       </div>
     </div>
   </div>
