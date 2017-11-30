@@ -7,7 +7,13 @@ Meteor.methods({
         Cart.insert({user: user, items: []});
       }
       if (Cart.find({user: user}).count() !== 0) {
-        if (Cart.find({user: user, items: {id: item}}).count() === 0){
+        let result = true;
+        let items = Cart.findOne({user: user}).items;
+        items.forEach((value) => {
+          if(value.id === item && value.size === size)
+            result = false
+        });
+        if(result){
           Cart.update({user: user}, {
             $push: {
               items: {
@@ -19,15 +25,11 @@ Meteor.methods({
           });
         }
         else {
-          Cart.update({user: user}, {
-            $push: {
-              items: {
-                id: item,
-                amount: amount,
-                size: size
-              }
-            }
+          items.forEach((value) => {
+            if(value.id === item && value.size === size)
+              value.amount += amount;
           });
+          Cart.update({user: Meteor.userId()}, { $set : {'items': items}});
         }
       }
     }
