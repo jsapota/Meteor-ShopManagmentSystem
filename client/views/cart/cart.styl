@@ -2,27 +2,28 @@
   position: fixed
   top: 60px
   right: 20px
-  min-height: 600px
+  height: calc(100vh - 70xp)
   width: 400px
   background: whitesmoke
   z-index 999
-  .row
-    padding-left: 20px
+  text-align: left
   .title
     color: red
-
-
   .cartItemsList
-    padding: 1em
-    background-color: white
-
-
-
+    height: 400px
+    padding-bottom: 20px
+    overflow-y: scroll
+    p
+      padding: 10px 0
     .cartItem
-      overflow-y: scroll
-      border-bottom: 1px solid black
-      padding-bottom: 5px
-
-
+      background-color: white
+      .col-*
+        border-bottom: 1px solid black
+      .amount
+      .name
+      .price
+        font-size: 16px
+  .btn-order
+    margin-top: 20px
 
 

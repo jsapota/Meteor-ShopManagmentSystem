@@ -50,3 +50,5 @@ CartSchema = new SimpleSchema({
     }
   },
 });
+
+Cart.attachSchema(CartSchema);

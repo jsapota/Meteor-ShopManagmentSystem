@@ -4,16 +4,13 @@
   {{#basicTabs name="" tabs=tabs}}
     <!--
       There are two ways to define content for your tabs:
-
       1. Wrap each tabbed section in a blank `<div></div>`.
          Sections must correspond with the order of the tabs you specified.
-
       2. Wrap each tabbed section in the provided block helper (RECOMMENDED!).
          `{{#tabContent slug="nameOfSlug"}} ... {{/tabContent}}`
          These can be defined in any order you like.
     -->
     {{#tabContent slug="details"}}
-      <button class="add-details"></button>
       <div class="row tabDetails">
         <div class="col-sm-12">
           <p class="text-left">Item fits true to size.</p>
@@ -42,7 +39,6 @@
     {{/tabContent}}
 
     {{#tabContent slug="shipping"}}
-      <button class="add-shipping"></button>
       <div class="row tabShipping">
         <ul>
           <li><b>Germany</b> - DHL Courier - 2-3 working days</li>
@@ -52,7 +48,6 @@
           <li><b>Norway</b> - Posten - 8-12 working days</li>
         </ul>
 
-
         <p><b>SAME DAY</b> order shipment on orders made before 14:00 CEST!</p>
         <p><b>FREE SHIPPING</b> on all orders!</p>
         <p>The shipment is <b>fully traceable</b> with tracking number sent in Confirmation email after dispatching.</p>
@@ -61,12 +56,56 @@
     {{/tabContent}}
 
     {{#tabContent slug="sizes"}}
-      <button class="add-sizes text-left"></button>
       <div class="row">
-        TUTAJ
+        <div class="col-sm-6 sizeImage">
+          <img src="https://s7.postimg.org/jt89w65y3/size_hoodies.jpg" alt="logo">
+        </div>
+        <div class="col-sm-6">
+          {{#if whichType}}
+            <button class="btn btn-primary btn-lg btn-toCm">To Cm</button>
+          {{else}}
+            <button class="btn btn-primary btn-lg btn-toInch">To Inch</button>
+          {{/if}}
+        </div>
+        <table class="col-sm-12 tg">
+          <tr class="row">
+            <th class="col-sm-3 tg-7fle">Sizes</th>
+            <th class="col-sm-3 tg-erlg">A</th>
+            <th class="col-sm-3 tg-erlg">B</th>
+            <th class="col-sm-3 tg-erlg">C</th>
+          </tr>
+          <tr class="row">
+            <td class="col-sm-3 tg-baqh">XS</td>
+            <td class="col-sm-3 tg-yw4l">{{inchOrCm 21}}</td>
+            <td class="col-sm-3 tg-yw4l">{{inchOrCm 26}}</td>
+            <td class="col-sm-3 tg-yw4l">{{inchOrCm 29}}</td>
+          </tr>
+          <tr class="row">
+            <td class="col-sm-3 tg-6qw1">S</td>
+            <td class="col-sm-3 tg-le8v">{{inchOrCm 22}}</td>
+            <td class="col-sm-3 tg-le8v">{{inchOrCm 27}}</td>
+            <td class="col-sm-3 tg-le8v">{{inchOrCm 30}}</td>
+          </tr>
+          <tr class="row">
+            <td class="col-sm-3 tg-baqh">M</td>
+            <td class="col-sm-3 tg-yw4l">{{inchOrCm 22}}</td>
+            <td class="col-sm-3 tg-yw4l">{{inchOrCm 27}}</td>
+            <td class="col-sm-3 tg-yw4l">{{inchOrCm 31}}</td>
+          </tr>
+          <tr class="row">
+            <td class="col-sm-3 tg-6qw1">L</td>
+            <td class="col-sm-3 tg-le8v">{{inchOrCm 23}}</td>
+            <td class="col-sm-3 tg-le8v">{{inchOrCm 28}}</td>
+            <td class="col-sm-3 tg-le8v">{{inchOrCm 32}}</td>
+          </tr>
+          <tr class="row">
+            <td class="col-sm-3 tg-baqh">XL</td>
+            <td class="col-sm-3 tg-yw4l">{{inchOrCm 24}}</td>
+            <td class="col-sm-3 tg-yw4l">{{inchOrCm 29}}</td>
+            <td class="col-sm-3 tg-yw4l">{{inchOrCm 33}}</td>
+          </tr>
+        </table>
       </div>
     {{/tabContent}}
-
   {{/basicTabs}}
-
 </template>

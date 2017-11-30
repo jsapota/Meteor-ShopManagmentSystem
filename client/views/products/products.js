@@ -8,7 +8,8 @@ Template.products.onCreated(function () {
   this.noItems = new ReactiveVar(false);
 });
 
-Template.products.onRendered(function() {});
+Template.products.onRendered(function () {
+});
 
 Template.products.helpers({
   'setSex': (sex) => {
@@ -24,7 +25,7 @@ Template.products.helpers({
     let types = {};
     return tempTypes.filter(function (entry) {
       if (types[entry.type]) {
-        return false;
+        return false
       }
       types[entry.type] = true;
       return true;
@@ -35,7 +36,7 @@ Template.products.helpers({
   },
   'recheckClothes': () => {
     let clothesChosen;
-    if(Template.instance().colorsEmpty.get()){
+    if (Template.instance().colorsEmpty.get()) {
       clothesChosen = Clothes.find({
         sex: Template.instance().clothSex.get(),
         type: Template.instance().clothCategory.get()
@@ -47,7 +48,7 @@ Template.products.helpers({
         colors: {$all: Template.instance().clothColor.get()}
       });
     }
-    if(clothesChosen.count() === 0){
+    if (clothesChosen.count() === 0) {
       Template.instance().noItems.set(true);
     } else {
       Template.instance().noItems.set(false);
@@ -55,42 +56,19 @@ Template.products.helpers({
   },
   'clothesList': () => {
     let clothesChosen;
-    if(Template.instance().colorsEmpty.get()){
+    if (Template.instance().colorsEmpty.get()) {
       clothesChosen = Clothes.find({
         sex: Template.instance().clothSex.get(),
         type: Template.instance().clothCategory.get()
       });
     } else {
       clothesChosen = Clothes.find({
-      sex: Template.instance().clothSex.get(),
-      type: Template.instance().clothCategory.get(),
-      colors: {$all: Template.instance().clothColor.get()}
+        sex: Template.instance().clothSex.get(),
+        type: Template.instance().clothCategory.get(),
+        colors: {$all: Template.instance().clothColor.get()}
       });
     }
-    // let sizes =  {};
-    // for(i = 0; i < clothesChosen.length; i++){
-    //     if(Template.instance().clothSize.get() === "XS")
-    //         if(clothesChosen[i].XS.value > 0)
-    //             sizes.push(clothesChosen[i]);
-    //     if(Template.instance().clothSize.get() === "SM")
-    //         if(clothesChosen[i].SM > 0)
-    //             console.log(clothesChosen[i].SM);
-    //             sizes.push(clothesChosen[i]);
-    //             console.log(clothesChosen[i]);
-    //     if(Template.instance().clothSize.get() === "MD")
-    //         if(clothesChosen[i].MD.value > 0)
-    //             sizes.push(clothesChosen[i]);
-    //     if(Template.instance().clothSize.get() === "LG")
-    //         if(clothesChosen[i].XL.value > 0)
-    //             sizes.push(clothesChosen[i]);
-    //     if(Template.instance().clothSize.get() === "XL")
-    //         if(clothesChosen[i].XL.value > 0)
-    //             sizes.push(clothesChosen[i]);
-    //
-    // }
-    // console.log(sizes);
-    // return sizes;
-    if(clothesChosen.count() === 0){
+    if (clothesChosen.count() === 0) {
       Template.instance().noItems.set(true);
     } else {
       Template.instance().noItems.set(false);
@@ -107,10 +85,16 @@ Template.products.helpers({
       tempArray = tempArray.concat(value.colors)
     });
     let collectColors = (value) => {
-      if (colors.indexOf(value) === -1) {colors.push(value)}
+      if (colors.indexOf(value) === -1) {
+        colors.push(value)
+      }
     };
-    tempArray.forEach((value) => {collectColors(value)});
-    return colors.map(function(c) { return {"color": c}});
+    tempArray.forEach((value) => {
+      collectColors(value)
+    });
+    return colors.map(function (c) {
+      return {"color": c}
+    });
   }
 });
 
@@ -126,11 +110,11 @@ Template.products.events({
   'click .colorButton': () => {
     let colors = [];
     let el = document.getElementsByName("colorCheckbox");
-    Object.keys(el).forEach(function(key) {
-      if(el[key].checked)
-        colors.push(""+el[key].id);
+    Object.keys(el).forEach(function (key) {
+      if (el[key].checked)
+        colors.push("" + el[key].id);
     });
-    if(colors.length === 0)
+    if (colors.length === 0)
       Template.instance().colorsEmpty.set(true);
     else
       Template.instance().colorsEmpty.set(false);

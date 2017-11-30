@@ -1,8 +1,12 @@
 Template.productDetails.onCreated(function() {
-  this.id = new ReactiveVar(FlowRouter.getParam("id"));
+  this.id = new ReactiveVar(FlowRouter.getParam('id'));
   this.photo = new ReactiveVar(true);
   this.size = new ReactiveVar('undef');
   this.amount = new ReactiveVar(0);
+});
+
+Template.productDetails.onRendered(function() {
+  Session.set('category', FlowRouter.getParam('category'));
 });
 
 Template.productDetails.helpers({
@@ -15,6 +19,11 @@ Template.productDetails.helpers({
     else
       return photoSec;
   },
+  'inStock': (value) => {
+    console.log(value);
+    if(value === 0)
+      return "disabled";
+  },
   'chosenSize': () => {
     if(Template.instance().size.get() === 'undef')
       return "";
@@ -25,6 +34,10 @@ Template.productDetails.helpers({
     let value = Template.instance().amount.get();
     if( value > 0)
       return "" + value + " *"
+  },
+  'reqFilled': () => {
+    if(Template.instance().size.get() === 'undef' || Template.instance().amount.get() === 0)
+      return "disabled"
   },
   'amount': () => {
     return Template.instance().amount.get();
@@ -52,7 +65,6 @@ Template.productDetails.events({
     let item = FlowRouter.getParam("id");
     let amount = Template.instance().amount.get();
     let size = Template.instance().size.get();
-    alert( item +" " + amount + " " + size);
     Template.instance().amount.set(0);
     Template.instance().size.set('undef');
     Meteor.call('addToCart', item, amount, size);

@@ -1,37 +1,65 @@
-/**
- * Created by Jakub on 06.11.2017.
- */
 Meteor.methods({
   'addToCart': (item, amount, size) => {
-    if(Meteor.user()) { return 0 } else {
-      // let user = Meteor.userId();
-      let user = "dummy";
-      if(Cart.find({ user : user}).count() === 0) {
-        Cart.insert({ user: user, item: []});
+    if (Meteor.user()) {
+      let user = Meteor.userId();
+      user += "";
+      if (Cart.find({user: user}).count() === 0) {
+        Cart.insert({user: user, items: []});
       }
-      if(Cart.find({ user : user}).count() !== 0) {
-        Cart.insert({ user: user, item: []});
-        // if(Cart.find({user: user, item.id: item}).count() > 0){
-        //
-        // }
-        // };
-        Cart.update({ user: user }, {
-          $push: {
-            items: {
-              id: item,
-              amount: amount,
-              size: size
+      if (Cart.find({user: user}).count() !== 0) {
+        if (Cart.find({user: user, items: {id: item}}).count() === 0){
+          Cart.update({user: user}, {
+            $push: {
+              items: {
+                id: item,
+                amount: amount,
+                size: size
+              }
             }
-          }
-        });
-        console.log(Cart.find({user: user}));
-      } else { console.log('nie ma carta'); }
+          });
+        }
+        else {
+          Cart.update({user: user}, {
+            $push: {
+              items: {
+                id: item,
+                amount: amount,
+                size: size
+              }
+            }
+          });
+        }
+      }
     }
+  },
+  'updateCart': (id, action, size) => {
+    let user = Meteor.userId();
+    let items = Cart.findOne({user: user}).items;
+    items.forEach((value) => {
+      if (value.id === id && value.size === size){
+        if(action > 0){
+          value.amount = value.amount + action;
+        } else {
+          if(value.amount - 1 > 0){
+            value.amount = value.amount + action
+          } else {
+            value.id = -1;
+          }
+        }
+      }
+    });
+    let tempItems = [];
+    items.forEach((value) => {
+      if(value.id !== -1)
+        tempItems.push(value);
+    });
+    items = tempItems;
+    Cart.update({user: Meteor.userId()}, { $set : {'items': items}});
   },
   'refillBase': () => {
     if (Clothes.find().count() <= 70) {
       // Men hoodies
-        console.log("Refil base");
+      console.log("Refil base");
       Clothes.insert({
         "name": "Painter Hoodie",
         "creator": "creator",

@@ -1,37 +1,68 @@
 <template name="cart">
-  <div class="row cartBox">
-        <div class="col-sm-12">
-          <h2 class="title">Shopping cart</h2>
-        </div>
-      <div class="col-sm-12 cartItemsList">
-              <div class="row titles">
-                  <div class="col-3 ">
-                      <span> Amount </span>
-                  </div>
-                  <div class="col-6 ">
-                      <span> Name </span>
-                  </div>
-                  <div class="col-3 ">
-                      <span> Price</span>
-                  </div>
-              </div>
-
-      <div class="row cartItem">
-              {{#each cartItem}}
-                      <div class="col-3 amount">
-                          <span> 1 </span>
-                      </div>
-                      <div class="col-6 name">
-                          chuj
-                      </div>
-                      <div class="col-3 price">
-                          7,50 $
-                      </div>
-              {{/each}}
+  {{#with userCart}}
+    {{#if stageOne}}
+    <div class="row cartBox">
+      <!--Title-->
+      <div class="col-sm-12">
+        <h2 class="title">Shopping cart</h2>
       </div>
+      <!--Categories--><!--Items-->
+      <div class="col-sm-12 cartItemsList">
+        <div class="row cartItem">
+          <div class="col-sm-2">
+            <p>Amount</p>
           </div>
+          <div class="col-sm-5">
+            <p>Name</p>
+          </div>
+          <div class="col-sm-1">
+            <p>Size</p>
+          </div>
+          <div class="col-sm-1">
+            <p>Price</p>
+          </div>
+          <div class="col-sm-2">
+          </div>
+        </div>
+        {{#each cartItem}}
+          <div class="row cartItem">
+            <div class="col-sm-2">
+              <p>{{amount}}x</p>
+            </div>
+            <div class="col-sm-5">
+              <p>{{productName id}}</p>
+            </div>
+            <div class="col-sm-1">
+              <p>{{size}}</p>
+            </div>
+            <div class="col-sm-1">
+              <p>{{productPrice id}}</p>
+            </div>
+            <div class="col-sm-1">
+              <button class="btn btn-sm btn-primary btn-add"
+                      value="{{id}}" data-size="{{size}}">+</button>
+            </div>
+            <div class="col-sm-1">
+              <button class="btn btn-sm btn-warning btn-sub"
+                      value="{{id}}" data-size="{{size}}">-</button>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+      <div class="col-sm-offset-9 col-sm-3">
+        <h3>Total:</h3>
+        <p>{{totalPrice}}</p>
+      </div>
+      <div class="col-sm-12">
+        <buttton class="btn btn-primary btn-block btn-lg">Zamów</buttton>
+      </div>
+    </div>
+  {{else}}
+      {{#if stageTwo}}
 
-<!--button bootstrap, btn btn-primary btn-block-->
-      <!--btn-lg btn-md-->
-  </div>
+        {{else}}
+
+      {{/if}}
+    {{/if}}
+  {{/with}}
 </template>
