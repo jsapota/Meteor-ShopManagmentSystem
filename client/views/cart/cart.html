@@ -1,68 +1,178 @@
 <template name="cart">
   {{#with userCart}}
-    {{#if stageOne}}
+    {{#if isThereError}}
+      {{> errorModal error}}
+    {{/if}}
     <div class="row cartBox">
-      <!--Title-->
       <div class="col-sm-12">
         <h2 class="title">Shopping cart</h2>
       </div>
-      <!--Categories--><!--Items-->
-      <div class="col-sm-12 cartItemsList">
-        <div class="row cartItem">
-          <div class="col-sm-2">
-            <p>Amount</p>
-          </div>
-          <div class="col-sm-5">
-            <p>Name</p>
-          </div>
-          <div class="col-sm-1">
-            <p>Size</p>
-          </div>
-          <div class="col-sm-1">
-            <p>Price</p>
-          </div>
-          <div class="col-sm-2">
-          </div>
-        </div>
-        {{#each cartItem}}
+      {{#if stageOne}}
+        <div class="col-sm-12 cartItemsList">
           <div class="row cartItem">
             <div class="col-sm-2">
-              <p>{{amount}}x</p>
+              <p>Amount</p>
             </div>
             <div class="col-sm-5">
-              <p>{{productName id}}</p>
+              <p>Name</p>
             </div>
             <div class="col-sm-1">
-              <p>{{size}}</p>
+              <p>Size</p>
             </div>
             <div class="col-sm-1">
-              <p>{{productPrice id}}</p>
+              <p>Price</p>
             </div>
-            <div class="col-sm-1">
-              <button class="btn btn-sm btn-primary btn-add"
-                      value="{{id}}" data-size="{{size}}">+</button>
-            </div>
-            <div class="col-sm-1">
-              <button class="btn btn-sm btn-warning btn-sub"
-                      value="{{id}}" data-size="{{size}}">-</button>
+            <div class="col-sm-2">
             </div>
           </div>
-        {{/each}}
-      </div>
-      <div class="col-sm-offset-9 col-sm-3">
-        <h3>Total:</h3>
-        <p>{{totalPrice}}</p>
-      </div>
-      <div class="col-sm-12">
-        <buttton class="btn btn-primary btn-block btn-lg">Zamów</buttton>
-      </div>
-    </div>
-  {{else}}
-      {{#if stageTwo}}
-
+          {{#each cartItem}}
+            <div class="row cartItem">
+              <div class="col-sm-2">
+                <p>{{amount}}x</p>
+              </div>
+              <div class="col-sm-5">
+                <p>{{productName id}}</p>
+              </div>
+              <div class="col-sm-1">
+                <p>{{size}}</p>
+              </div>
+              <div class="col-sm-1">
+                <p>{{productPrice id}}</p>
+              </div>
+              <div class="col-sm-1">
+                <button class="btn btn-sm btn-primary btn-add"
+                        value="{{id}}" data-size="{{size}}">+
+                </button>
+              </div>
+              <div class="col-sm-1">
+                <button class="btn btn-sm btn-warning btn-sub"
+                        value="{{id}}" data-size="{{size}}">-
+                </button>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+        <div class="col-sm-offset-4 col-sm-3">
+          <h3>Total:</h3>
+        </div>
+        <div class="col-sm-5">
+          <h3>{{totalPrice}}</h3>
+        </div>
+        <div class="col-sm-12">
+          <button class="btn btn-primary btn-block btn-lg btn-order">Next</button>
+        </div>
+      {{else}}
+        {{#if stageTwo}}
+          <div class="col-sm-12">
+            <p>Confirm order details.</p>
+          </div>
+          <div class="col-sm-12">
+            <label for="recName">Name</label>
+            <input class="recData" type="text" id="recName">
+          </div>
+          <div class="col-sm-12">
+            <label for="recSurname">Surname</label>
+            <input class="recData" type="text" id="recSurname">
+          </div>
+          <div class="col-sm-12">
+            <label for="recStreet">Street</label>
+            <input class="recData" type="text" id="recStreet">
+          </div>
+          <div class="col-sm-12">
+            <label for="recCity">City</label>
+            <input class="recData" type="text" id="recCity">
+          </div>
+          <div class="col-sm-12">
+            <label for="recCountry">Country</label>
+            <input class="recData" type="text" id="recCountry">
+          </div>
+          <div class="col-sm-6">
+            <button class="btn btn-primary btn-block btn-lg btn-form">Next</button>
+          </div>
+          <div class="col-sm-6">
+            <button class="btn btn-warning btn-block btn-lg btn-back">Change</button>
+          </div>
         {{else}}
+          <div class="col-sm-12">
+            <h3>Recipient details</h3>
+          </div>
+          <div class="col-sm-12 recipientDetails">
+            <div class="row">
+              <div class="col-sm-4 ">
+                <p><b>Name</b></p>
+                <p><b>Surname</b></p>
+                <p><b>Street</b></p>
+                <p><b>City</b></p>
+                <p><b>Country</b></p>
+              </div>
+              <div class="col-sm-8 ">
+                <p>{{orderDetails.street}}</p>
+                <p>{{orderDetails.name}}</p>
+                <p>{{orderDetails.city}}</p>
+                <p>{{orderDetails.surname}}</p>
+                <p>{{orderDetails.country}}</p>
+              </div>
 
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <h3>Order details</h3>
+          </div>
+          <div class="col-sm-12 cartItemsList">
+            <div class="row cartItem">
+              <div class="col-sm-2">
+                <p>Amount</p>
+              </div>
+              <div class="col-sm-6">
+                <p>Name</p>
+              </div>
+              <div class="col-sm-2">
+                <p>Size</p>
+              </div>
+              <div class="col-sm-2">
+                <p>Price</p>
+              </div>
+            </div>
+            {{#each cartItem}}
+              <div class="row cartItem">
+                <div class="col-sm-2">
+                  <p>{{amount}}x</p>
+                </div>
+                <div class="col-sm-6">
+                  <p>{{productName id}}</p>
+                </div>
+                <div class="col-sm-2">
+                  <p>{{size}}</p>
+                </div>
+                <div class="col-sm-2">
+                  <p>{{productPrice id}}</p>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+          <div class="col-sm-offset-4 col-sm-3">
+            <h3>Total:</h3>
+          </div>
+          <div class="col-sm-5">
+            <h3>{{totalPrice}}</h3>
+          </div>
+          <div class="col-sm-6">
+            <button class="btn btn-primary btn-block btn-lg btn-order">Order</button>
+          </div>
+          <div class="col-sm-6">
+            <button class="btn btn-warning btn-block btn-lg btn-back">Change</button>
+          </div>
+        {{/if}}
       {{/if}}
-    {{/if}}
+    </div>
   {{/with}}
+</template>
+
+<template name="errorModal">
+  <div class="errorBox">
+    <div class="alert alert-danger">
+      <strong>Warning!</strong>
+      {{error}}
+    </div>
+  </div>
 </template>
