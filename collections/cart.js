@@ -4,7 +4,6 @@ import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
 SimpleSchema.debug = true;
 
-
 Cart = new Mongo.Collection('cart');
 
 CartItem = new SimpleSchema({
@@ -17,6 +16,15 @@ CartItem = new SimpleSchema({
   size: {
     type: String
   }
+});
+CartDetails = new SimpleSchema({
+  name: { type: String , optional: true},
+  surname: { type: String , optional: true},
+  street: { type: String , optional: true},
+  city: { type: String , optional: true},
+  postalCode: { type: String , optional: true},
+  country: { type: String , optional: true},
+  number: { type: String , optional: true}
 });
 
 CartSchema = new SimpleSchema({
@@ -49,6 +57,49 @@ CartSchema = new SimpleSchema({
       type: "hidden"
     }
   },
+  state: {
+    type: String,
+    optional: true,
+    autoValue: function() {
+      if (this.isInsert) {
+        return "";
+      }
+    }
+  },
+  orderDetails: {
+    type: Array,
+    optional: true,
+    autoValue: function() {
+      if (this.isInsert) {
+        return [];
+      }
+    }
+  },
+  "orderDetails.$": {
+    type: CartDetails,
+    optional: true
+  }
+  // "orderDetails.$.name": {
+  //   type: String
+  // },
+  // "orderDetails.$.surname": {
+  //   type: String
+  // },
+  // "orderDetails.$.street": {
+  //   type: String
+  // },
+  // "orderDetails.$.postalCode": {
+  //   type: String
+  // },
+  // "orderDetails.$.city": {
+  //   type: String
+  // },
+  // "orderDetails.$.country": {
+  //   type: String
+  // },
+  // "orderDetails.$.number": {
+  //   type: String
+  // }
 });
 
 Cart.attachSchema(CartSchema);

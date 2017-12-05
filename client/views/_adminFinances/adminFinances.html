@@ -1,17 +1,23 @@
 <template name="adminFinances">
   <div class="container">
     <div class="row">
-      <div class="col-sm-3">User</div>
-      <div class="col-sm-3">CartId</div>
+      <div class="col-sm-2">User</div>
+      <div class="col-sm-2">CartId</div>
+      <div class="col-sm-3">Items</div>
       <div class="col-sm-3">Date</div>
-      <div class="col-sm-3">Total</div>
+      <div class="col-sm-2">Total</div>
     </div>
     {{#each recieptList}}
-      <div class="row">
-        <div class="col-sm-3">{{user}}</div>
-        <div class="col-sm-3">{{cartId}}</div>
-        <div class="col-sm-3">{{createdAt}}</div>
-        <div class="col-sm-3">{{price}}</div>
+      <div class="row orderBox">
+        <div class="col-sm-2"><p>{{giveMeName orderDetails}}</p></div>
+        <div class="col-sm-2"><p>{{cartId}}</p></div>
+        <div class="col-sm-3">
+          {{#each items}}
+            <p>{{productDetails id}} - x {{amount}} in size {{size}} </p>
+          {{/each}}
+        </div>
+        <div class="col-sm-3"><p>{{shortDate createdAt}}</p></div>
+        <div class="col-sm-2"><p>{{price}}$</p></div>
       </div>
     {{/each}}
   </div>

@@ -1,4 +1,40 @@
 Meteor.methods({
+  'finalizeOrder': (cartId, userId, totalPrice, userDetails) => {
+    let cart = Cart.findOne({_id: cartId});
+    let items = cart.items;
+    let error = "";
+    let value = 0;
+    items.forEach((cloth) => {
+      value = Clothes.findOne({_id: cloth.id})[cloth.size];
+      if (value < cloth.amount)
+        error = 'Not enough clothes';
+    });
+    if (error === "") {
+      items.forEach((cloth) => {
+        value = Clothes.findOne({_id: cloth.id})[cloth.size];
+        value -= cloth.amount;
+        Clothes.update({_id: cloth.id}, {$set: {[cloth.size]: value}})
+      });
+      Reciepts.insert(
+        { user: userId,
+          cartId: cartId,
+          price: totalPrice,
+          items: items,
+          createdAt: new Date(),
+          orderDetails: [
+            {'name': userDetails[0]},
+            {'surname': userDetails[1]},
+            {'street': userDetails[2]},
+            {'postalCode': userDetails[3]},
+            {'city': userDetails[4]},
+            {'country': userDetails[5]},
+            {'number': userDetails[6]}
+          ],
+          state: 'toBePacked'
+      });
+      Cart.remove({_id: cartId});
+    }
+  },
   'addToCart': (item, amount, size) => {
     if (Meteor.user()) {
       let user = Meteor.userId();
@@ -10,10 +46,10 @@ Meteor.methods({
         let result = true;
         let items = Cart.findOne({user: user}).items;
         items.forEach((value) => {
-          if(value.id === item && value.size === size)
+          if (value.id === item && value.size === size)
             result = false
         });
-        if(result){
+        if (result) {
           Cart.update({user: user}, {
             $push: {
               items: {
@@ -26,10 +62,10 @@ Meteor.methods({
         }
         else {
           items.forEach((value) => {
-            if(value.id === item && value.size === size)
+            if (value.id === item && value.size === size)
               value.amount += amount;
           });
-          Cart.update({user: Meteor.userId()}, { $set : {'items': items}});
+          Cart.update({user: Meteor.userId()}, {$set: {'items': items}});
         }
       }
     }
@@ -38,25 +74,27 @@ Meteor.methods({
     let user = Meteor.userId();
     let items = Cart.findOne({user: user}).items;
     items.forEach((value) => {
-      if (value.id === id && value.size === size){
-        if(action > 0){
-          value.amount = value.amount + action;
+      if (value.id === id && value.size === size) {
+        if (action > 0) {
+          if (Clothes.findOne({_id: value.id})[value.size] >= value.amount + action)
+            value.amount = value.amount + action;
         } else {
-          if(value.amount - 1 > 0){
+          if (value.amount - 1 > 0) {
             value.amount = value.amount + action
           } else {
             value.id = -1;
           }
         }
       }
+
     });
     let tempItems = [];
     items.forEach((value) => {
-      if(value.id !== -1)
+      if (value.id !== -1)
         tempItems.push(value);
     });
     items = tempItems;
-    Cart.update({user: Meteor.userId()}, { $set : {'items': items}});
+    Cart.update({user: Meteor.userId()}, {$set: {'items': items}});
   },
   'refillBase': () => {
     if (Clothes.find().count() <= 70) {

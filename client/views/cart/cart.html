@@ -5,7 +5,7 @@
     {{/if}}
     <div class="row cartBox">
       <div class="col-sm-12">
-        <h2 class="title">Shopping cart</h2>
+        <h2 class="title">Shopping cart {{_id}}</h2>
       </div>
       {{#if stageOne}}
         <div class="col-sm-12 cartItemsList">
@@ -68,23 +68,31 @@
           </div>
           <div class="col-sm-12">
             <label for="recName">Name</label>
-            <input class="recData" type="text" id="recName">
+            <input class="recData" type="text" id="recName" value="test">
           </div>
           <div class="col-sm-12">
             <label for="recSurname">Surname</label>
-            <input class="recData" type="text" id="recSurname">
+            <input class="recData" type="text" id="recSurname" value="test">
           </div>
           <div class="col-sm-12">
             <label for="recStreet">Street</label>
-            <input class="recData" type="text" id="recStreet">
+            <input class="recData" type="text" id="recStreet" value="test">
+          </div>
+          <div class="col-sm-12">
+            <label for="recStreet">Postal code</label>
+            <input class="recData" type="text" id="recPostalCode" value="test">
           </div>
           <div class="col-sm-12">
             <label for="recCity">City</label>
-            <input class="recData" type="text" id="recCity">
+            <input class="recData" type="text" id="recCity" value="test">
           </div>
           <div class="col-sm-12">
             <label for="recCountry">Country</label>
-            <input class="recData" type="text" id="recCountry">
+            <input class="recData" type="text" id="recCountry" value="test">
+          </div>
+          <div class="col-sm-12">
+            <label for="recCountry">Number</label>
+            <input class="recData" type="text" id="recNumber" value="test">
           </div>
           <div class="col-sm-6">
             <button class="btn btn-primary btn-block btn-lg btn-form">Next</button>
@@ -102,15 +110,19 @@
                 <p><b>Name</b></p>
                 <p><b>Surname</b></p>
                 <p><b>Street</b></p>
+                <p><b>Postal code</b></p>
                 <p><b>City</b></p>
                 <p><b>Country</b></p>
+                <p><b>Number</b></p>
               </div>
               <div class="col-sm-8 ">
-                <p>{{orderDetails.street}}</p>
                 <p>{{orderDetails.name}}</p>
-                <p>{{orderDetails.city}}</p>
                 <p>{{orderDetails.surname}}</p>
+                <p>{{orderDetails.street}}</p>
+                <p>{{orderDetails.postalCode}}</p>
+                <p>{{orderDetails.city}}</p>
                 <p>{{orderDetails.country}}</p>
+                <p>{{orderDetails.number}}</p>
               </div>
 
             </div>
@@ -157,7 +169,7 @@
             <h3>{{totalPrice}}</h3>
           </div>
           <div class="col-sm-6">
-            <button class="btn btn-primary btn-block btn-lg btn-order">Order</button>
+            <button class="btn btn-primary btn-block btn-lg btn-order" value="{{_id}}">Order</button>
           </div>
           <div class="col-sm-6">
             <button class="btn btn-warning btn-block btn-lg btn-back">Change</button>

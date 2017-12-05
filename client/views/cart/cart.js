@@ -1,7 +1,7 @@
 Template.cart.onCreated(function () {
   let total = 0;
   let items = Cart.findOne({user: Meteor.user}).items;
-  items.forEach(function(value) {
+  items.forEach(function (value) {
     let price = Clothes.findOne({_id: value.id}).price;
     total += value.amount * price;
   });
@@ -9,9 +9,12 @@ Template.cart.onCreated(function () {
   this.stage = new ReactiveVar(1);
   this.orderDetails = new ReactiveVar();
   this.error = new ReactiveVar("");
+  this.userCart = new ReactiveVar(Cart.findOne({user: Meteor.user}) || false);
 });
 
-Template.cart.onRendered(function() {});
+Template.cart.onRendered(function () {
+  this.userCart = new ReactiveVar(Cart.findOne({user: Meteor.user}) || false);
+});
 
 Template.cart.helpers({
   'isThereError': () => {
@@ -29,7 +32,7 @@ Template.cart.helpers({
   'totalPrice': () => {
     let total = 0;
     let items = Cart.findOne({user: Meteor.user}).items;
-    items.forEach(function(value) {
+    items.forEach(function (value) {
       let price = Clothes.findOne({_id: value.id}).price;
       total += value.amount * price;
     });
@@ -37,7 +40,7 @@ Template.cart.helpers({
     return Template.instance().totalPrice.get();
   },
   'userCart': () => {
-    return Cart.findOne({user: Meteor.user}) || false;
+    return Template.instance().userCart.get();
   },
   'cartItem': () => {
     return Cart.findOne({user: Meteor.user}).items || false;
@@ -54,8 +57,10 @@ Template.cart.helpers({
       'name': details[0],
       'surname': details[1],
       'street': details[2],
-      'city': details[3],
-      'country': details[4]
+      'postalCode': details[3],
+      'city': details[4],
+      'country': details[5],
+      'number': details[6]
     }
   }
 });
@@ -68,18 +73,27 @@ Template.cart.events({
     Meteor.call('updateCart', event.target.value, -1, event.target.getAttribute('data-size'));
   },
   'click .btn-order': () => {
+    if (Template.instance().stage.get() !== 3) {
       Template.instance().stage.set(Template.instance().stage.get() + 1);
       Template.instance().error.set("");
+    } else {
+      console.log(typeof Template.instance().orderDetails.get());
+      Meteor.call('finalizeOrder', event.target.value, Meteor.userId(),
+        Template.instance().totalPrice.get(), Template.instance().orderDetails.get())
+      Template.instance().userCart.set(false);
+      Session.set('openCart', false);
+    }
   },
   'click .btn-back': () => {
-    if(Template.instance().stage.get() === 3){
+    if (Template.instance().stage.get() === 3) {
       let inputValues = document.querySelectorAll('.recData');
       let values = Template.instance().orderDetails.get();
       let i = 0;
       inputValues.forEach((field) => {
         field.value = values[i];
       })
-    };
+    }
+    ;
     Template.instance().error.set("");
     Template.instance().stage.set(Template.instance().stage.get() - 1);
   },
@@ -89,10 +103,10 @@ Template.cart.events({
     let error = "";
     inputs.forEach((value) => {
       values.push(value.value);
-      if(value.value.length === 0)
+      if (value.value.length === 0)
         error = "Check if all fields are correct before you confirm."
     });
-    if( error === ""){
+    if (error === "") {
       Template.instance().orderDetails.set(values);
       Template.instance().stage.set(Template.instance().stage.get() + 1);
     } else {
