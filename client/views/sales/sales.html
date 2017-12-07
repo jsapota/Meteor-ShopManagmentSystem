@@ -1,5 +1,26 @@
 <template name="sales">
+    <div class="col-sm-12 salesContainer">
+        <div class="row">
+            <div class="col-sm-12"><h2> Today's hot sales:</h2></div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <img class="promoPhoto" src="{{whichPromo}}">
+                        <div class="buttonWrapper">
+                            <button class="more promoButton"> Find out more...</button>
+                        </div>
 
-  <h1>SALES</h1>
+                    </div>
 
+                </div>
+
+                <div class="row">
+                    <ul class="always-cheaper-tab">
+                        <li><span class="salesBarTitle "> Always cheaper </span></li>
+                        <li><a class="salesBarElement " role="button">Outlet</a></li>
+                        <li><a class="salesBarElement " role="button">Last sizes</a></li>
+                        <li><a class="salesBarElement " role="button">End's of collections</a></li>
+                    </ul>
+                </div>
+        </div>
+    </div>
 </template>
