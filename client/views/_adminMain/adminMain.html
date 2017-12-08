@@ -1,3 +1,35 @@
 <template name="adminMain">
-  main
+    <div class="adminMainContainer">
+        <div class="col-sm-12 col-md-6">
+            <h2> Monthly budget</h2>
+            <div class="budget">
+                <h3>Planned: </h3>
+                <hr>
+                <h3>Current: </h3>
+            </div>
+
+
+        </div>
+
+
+        <div class="col-sm-12 col-md-6 deliveries">
+            <h2> Deliveries</h2>
+            <div class="row">
+                <div class="col-sm-3">From</div>
+                <div class="col-sm-3">Size</div>
+                <div class="col-sm-3">Arrival</div>
+                <div class="col-sm-3">Details</div>
+            </div>
+
+            {{#each deliveryList}}
+                <div class="row deliveryBox">
+                    <div class="col-sm-3"><p>{{name}}</p></div>
+                    <div class="col-sm-3"><p>{{size}}</p></div>
+                    <div class="col-sm-3"><p>{{shortDate createdAt}}</p></div>
+                    <div class="col-sm-3"><p>{{details}}</p></div>
+                </div>
+            {{/each}}
+        </div>
+
+    </div>
 </template>
